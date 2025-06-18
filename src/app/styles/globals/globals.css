@@ -1,4 +1,12 @@
 :root {
+  --font-play-light: 'Playfair-light', serif, sans-serif;
+  --font-play-regular: 'Playfair-regular', serif, sans-serif;
+  --font-play-medium: 'Playfair-medium', serif, sans-serif;
+  --font-play-bold: 'Playfair-bold', serif, sans-serif;
+  --font-lato-light: 'Lato-light', serif, sans-serif;
+  --font-lato-regular: 'Lato-regular', serif, sans-serif;
+  --font-lato-medium: 'Lato-medium', serif, sans-serif;
+  --font-lato-bold: 'Lato-bold', serif, sans-serif;
   --color-background: #000;
   --color-text: #fff;
   --color-primary: #007bff;

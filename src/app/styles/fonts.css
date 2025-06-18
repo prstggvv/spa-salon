@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Playfair-light';
+  src: url('../../shared/assets/fonts/PlayfairDisplay-Light.woff2') format('woff2'),
+       url('../../shared/assets/fonts/PlayfairDisplay-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+@font-face {
+  font-family: 'Playfair-regular';
+  src: url('../../shared/assets/fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+       url('../../shared/assets/fonts/PlayfairDisplay-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+@font-face {
+  font-family: 'Playfair-medium';
+  src: url('../../shared/assets/fonts/PlayfairDisplay-Medium.woff2') format('woff2'),
+       url('../../shared/assets/fonts/PlayfairDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+@font-face {
+  font-family: 'Playfair-bold';
+  src: url('../../shared/assets/fonts/PlayfairDisplay-Bold.woff2') format('woff2'),
+       url('../../shared/assets/fonts/PlayfairDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+
+@font-face {
+  font-family: 'Lato-light';
+  src: url('../../shared/assets/fonts/Lato-Light.woff2') format('woff2'),
+       url('../../shared/assets/fonts/Lato-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+@font-face {
+  font-family: 'Lato-regular';
+  src: url('../../shared/assets/fonts/Lato-Regular.woff2') format('woff2'),
+       url('../../shared/assets/fonts/Lato-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+@font-face {
+  font-family: 'Lato-medium';
+  src: url('../../shared/assets/fonts/Lato-Medium.woff2') format('woff2'),
+       url('../../shared/assets/fonts/Lato-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
+@font-face {
+  font-family: 'Lato-bold';
+  src: url('../../shared/assets/fonts/Lato-Bold.woff2') format('woff2'),
+       url('../../shared/assets/fonts/Lato-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+0400-04FF;
+}
