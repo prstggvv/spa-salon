@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   margin: 0;
-  background: rgb(245, 238, 230);
+  background: var(--bg-premium);
 }
 
 .container {
@@ -19,17 +19,19 @@
 }
 
 .link {
-  color: #222;
+  color: var(--color-black);
   text-decoration: none;
   font-size: 18px;
-  font-family: var(--font-play-regular);
+  line-height: 24px;
+  letter-spacing: 2px;
+  font-family: var(--font-open-sans-semibold);
   position: relative;
   transition: color 0.2s;
 }
 
 .link:hover,
 .link:focus {
-  color: #b77b3b;
+  color: var(--color-secondary);
 }
 
 .burger {
@@ -49,7 +51,7 @@
 .burgerLine {
   width: 100%;
   height: 4px;
-  background: #b77b3b;
+  background: var(--color-secondary);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(.4,2,.6,1);
   position: absolute;
@@ -100,7 +102,7 @@
     height: 100vh;
     width: 70vw;
     max-width: 320px;
-    background: rgb(245, 238, 230);
+    background: var(--bg-premium);
     align-items: flex-start;
     padding: 80px 24px 24px 24px;
     gap: 24px;

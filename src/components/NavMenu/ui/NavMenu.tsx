@@ -13,14 +13,22 @@ const listVariants = {
   visible: {
     transition: {
       staggerChildren: 0.13,
-      delayChildren: 0.18,
+      delayChildren: 0.43,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  hidden: { 
+    opacity: 0, y: 30 
+  },
+  visible: { 
+    opacity: 1,
+    y: 0,
+    transition: { 
+      duration: 0.45
+    }
+  },
 };
 
 export const NavMenu = ({ open, onClose }: INavMenuData) => (

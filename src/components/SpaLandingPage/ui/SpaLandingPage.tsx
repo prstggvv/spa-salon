@@ -4,16 +4,21 @@ import { classNames } from '../../../shared/lib/classNames/classNames';
 
 const SPA_IMAGE = 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80';
 
-const handleScrollToNext = () => {
-  const el = document.getElementById('next-section');
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' });
-  }
-};
+interface ISpanSection {
+  className?: string;
+}
 
-export const SpaLandingPage = () => {
+export const SpaLandingPage = ({ className }: ISpanSection) => {
+  const handleScrollToNext = () => {
+    const el = document.getElementById('next-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
-    <section className={classNames(cls.wrapper, {}, [])}>
+    <section
+      className={classNames(cls.wrapper, {}, [className || ''])}
+    >
       <img
         src={SPA_IMAGE}
         alt="SPA салон"
@@ -38,7 +43,8 @@ export const SpaLandingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.6 }}
           >
-            Побалуйте себя премиальными спа-процедурами для тела и разума в атмосфере полного спокойствия.
+            Побалуйте себя премиальными спа-процедурами для тела и разума в 
+            атмосфере полного спокойствия.
           </motion.p>
         </div>
         <motion.button
@@ -53,7 +59,12 @@ export const SpaLandingPage = () => {
           onClick={handleScrollToNext}
         >
           <svg className={cls.arrowIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5v14M12 19l-7-7M12 19l7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path 
+              d="M12 5v14M12 19l-7-7M12 19l7-7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"/>
           </svg>
         </motion.button>
       </div>
