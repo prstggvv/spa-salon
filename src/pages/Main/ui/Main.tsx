@@ -2,6 +2,7 @@ import { Header } from "../../../components/Header";
 import { classNames } from "../../../shared/lib/classNames/classNames";
 import cls from './Main.module.css';
 import { SpaLandingPage } from "../../../components/SpaLandingPage";
+import TeamSection from "../../../components/TeamSection";
 
 interface MainProps {
   className?: string;
@@ -12,6 +13,7 @@ const Main = ({ className }: MainProps) => {
     <div className={classNames(cls.main, {}, [className || ''])}>
       <Header />
       <SpaLandingPage />
+      <TeamSection />
     </div>
   )
 };

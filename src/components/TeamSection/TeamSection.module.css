@@ -1,0 +1,130 @@
+.teamSection {
+  padding: 64px 0;
+  background: #fff;
+  width: 100%;
+}
+
+.container {
+  width: 95.83%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.block {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  font-size: 48px;
+  font-family: var(--font-open-sans-semibold);
+  margin: 0;
+  line-height: 75px;
+  letter-spacing: -0.04rem;
+  color: var(--color-black);
+}
+
+.line {
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-secondary);
+  margin: 0;
+}
+
+.teamGrid {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.photoWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  height: 320px;
+}
+
+.photo {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.photoWrapper:hover .photo {
+  transform: scale(1.05);
+}
+
+.photoWrapper:hover .photoOverlay {
+  opacity: 1;
+}
+
+.name {
+  font-size: clamp(16px, 2vw, 20px);
+  font-family: var(--font-roboto-regular);
+  color: #232323;
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.role {
+  font-size: clamp(12px, 1.5vw, 14px);
+  font-family: var(--font-sf-pro-light);
+  margin: 0;
+  color: #888;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 700px) {
+  .card {
+    max-width: 95vw;
+  }
+  .photo {
+    max-width: 95vw;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 637px) {
+  .teamGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .title {
+    font-size: 34px;
+  }
+}

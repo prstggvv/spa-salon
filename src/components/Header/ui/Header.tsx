@@ -3,6 +3,7 @@ import cls from './Header.module.css';
 import { classNames } from "../../../shared/lib/classNames/classNames";
 import { NavMenu } from '../../../components/NavMenu';
 import { navLinks } from '../../NavMenu/model/navData';
+import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,20 +40,12 @@ export const Header = () => {
             </a>
           ))}
         </nav>
-        <button
-          className={classNames(cls.burger, { [cls.open]: menuOpen }, [])}
-          aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          tabIndex={0}
-          onClick={handleBurgerClick}
-          onKeyDown={handleKeyDown}
-          type="button"
-        >
-          <span className={classNames(cls.burgerLine, { [cls.line1]: true, [cls.active]: menuOpen }, [])} />
-          <span className={classNames(cls.burgerLine, { [cls.line2]: true, [cls.active]: menuOpen }, [])} />
-          <span className={classNames(cls.burgerLine, { [cls.line3]: true, [cls.active]: menuOpen }, [])} />
-        </button>
+        <BurgerButton 
+          className={classNames(cls.burger, {}, [])}
+          menuOpen={menuOpen}
+          handleBurgerClick={handleBurgerClick}
+          handleKeyDown={handleKeyDown}
+        />
         <NavMenu 
           open={menuOpen}
           onClose={handleNavLinkClick}
