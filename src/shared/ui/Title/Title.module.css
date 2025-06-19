@@ -1,0 +1,35 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  font-size: 48px;
+  font-family: var(--font-open-sans-semibold);
+  margin: 0;
+  line-height: 75px;
+  letter-spacing: -0.04rem;
+  color: var(--color-black);
+}
+
+.line {
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-secondary);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 32px;
+    line-height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}

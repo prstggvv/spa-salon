@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import cls from './TeamSection.module.css';
 import { classNames } from '../../shared/lib/classNames/classNames';
+import Title from '../../shared/ui/Title/Title';
 
 const MAX_IMAGE = 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80';
 
@@ -29,16 +30,10 @@ const teamMembers = [
 const TeamSection: React.FC = () => (
   <section className={cls.teamSection} aria-label="Наша команда">
     <div className={cls.container}>
-      <motion.div
-        className={cls.block}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        viewport={{ once: true }}
-      >
-        <h2 className={cls.title}>Наша команда</h2>
-        <div className={cls.line} />
-      </motion.div>
+      <Title 
+        className={classNames(cls.title, {}, [])}
+        children='Наша команда'
+      />
       <ul className={cls.teamGrid}>
         {teamMembers.map((member, i) => (
           <motion.li
