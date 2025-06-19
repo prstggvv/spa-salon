@@ -4,9 +4,12 @@
   --font-sf-pro-light: 'Sf-pro-light', sans-serif, serif;
   --font-roboto-regular: 'Roboto-regular', sans-serif, serif;
   --font-open-sans-semibold: 'OpenSans-semibold', sans-serif, serif;
+  --error-color: #862308;
   --bg-premium: rgb(245, 238, 230);
   --bg-secondary: rgb(246, 248, 250);
   --color-black: #222;
+  --color-black-outline: #4a4a4a;
+  --color-white: #fff;
   --color-secondary: #b77b3b;
   --color-premium: rgb(36, 33, 33);
 }
