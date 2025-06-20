@@ -8,11 +8,6 @@ interface HeroProps {
 }
 
 export const Hero = ({ className }: HeroProps) => {
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.6 } },
-  };
-
   return (
     <section className={classNames(cls.section, {}, [className || ''])}>
       <div className={classNames(cls.container, {}, [])}>

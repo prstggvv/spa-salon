@@ -1,6 +1,5 @@
 import cls from './Reviews.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import { StarImage } from '../../../shared/ui/StarImage/StarImage';
 import Title from '../../../shared/ui/Title/Title';
 import { Carousel } from '../../../shared/ui/Carousel/Carousel';
 
