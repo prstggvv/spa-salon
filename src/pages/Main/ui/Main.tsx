@@ -5,6 +5,7 @@ import TeamSection from "../../../components/TeamSection";
 import { Contact } from "../../../components/Contact";
 import { Reviews } from "../../../components/Reviews";
 import { AboutSpa } from "../../../components/AboutSpa";
+import { Hero } from "../../../components/Hero";
 
 interface MainProps {
   className?: string;
@@ -14,6 +15,7 @@ const Main = ({ className }: MainProps) => {
   return (
     <div className={classNames(cls.main, {}, [className || ''])}>
       <Header />
+      <Hero />
       <AboutSpa />
       <TeamSection />
       <Contact />

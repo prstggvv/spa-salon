@@ -1,7 +1,20 @@
 .header {
   width: 100%;
   margin: 0;
-  background: var(--bg-premium);
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: background 0.35s cubic-bezier(.4,2,.6,1), box-shadow 0.35s, color 0.35s;
+  color: #fff;
+  box-shadow: none;
+}
+
+.header.scrolled {
+  background: #fff;
+  color: #232323;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 
 .container {
@@ -16,22 +29,48 @@
 .nav {
   display: flex;
   gap: 32px;
+  transition: color 0.35s;
+  color: #fff;
+}
+.nav.scrolled {
+  color: #232323;
 }
 
 .link {
-  color: var(--color-black);
+  color: #fff;
   text-decoration: none;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 2px;
   font-family: var(--font-open-sans-semibold);
   position: relative;
-  transition: color 0.2s;
+  transition: color 0.35s;
 }
-
+.link.scrolled {
+  color: #232323;
+}
 .link:hover,
 .link:focus {
   color: var(--color-secondary);
+}
+
+.photo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 2px;
+  transition: color 0.35s;
+}
+.photo.scrolled {
+  color: #232323;
+}
+
+.burger {
+  transition: color 0.35s;
+  color: #fff;
+}
+.burger.scrolled {
+  color: #232323;
 }
 
 @media (max-width: 768px) {
