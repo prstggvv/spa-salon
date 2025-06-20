@@ -1,0 +1,13 @@
+.section {
+  padding: 80px 24px;
+  background: #e9e3d3;
+}
+
+.container {
+  width: 95.83%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: center;
+}
