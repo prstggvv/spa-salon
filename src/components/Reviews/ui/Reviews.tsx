@@ -8,6 +8,7 @@ export const Reviews = () => {
     <section className={classNames(cls.section, {}, [])}>
       <div className={classNames(cls.container, {}, [])}>
         <Title 
+          className={classNames(cls.title, {}, [])}
           children='Отзывы'
         />
         <div className={classNames(cls.reviews, {}, [])}>

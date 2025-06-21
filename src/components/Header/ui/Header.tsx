@@ -4,18 +4,46 @@ import { classNames } from "../../../shared/lib/classNames/classNames";
 import { NavMenu } from '../../../components/NavMenu';
 import { navLinks } from '../../NavMenu/model/navData';
 import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
+import { motion } from 'framer-motion';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.6, 
+      } 
+    },
+  };
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const navItem = {
+    hidden: { 
+      opacity: 0,
+      y: -20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { 
+        duration: 0.5,
+      }
+    },
+  };
 
   const handleBurgerClick = useCallback(() => {
     setMenuOpen((prev) => !prev);
@@ -32,26 +60,43 @@ export const Header = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={classNames(cls.header, { [cls.scrolled]: scrolled })}>
+    <motion.header
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      className={classNames(cls.header, { [cls.scrolled]: scrolled })}
+    >
       <div className={classNames(cls.container)}>
         <p className={classNames(cls.photo, { [cls.scrolled]: scrolled })}>Logo</p>
-        <nav 
+        <motion.nav 
           className={classNames(cls.nav, { [cls.scrolled]: scrolled }, [])}
-          aria-label="Главное меню"
+          variants={staggerChildren}
+          initial='hidden'
+          animate='visible'
+          aria-label='Главное меню'
         >
           {navLinks.map((link) => (
-            <a
+            <motion.a
               key={link.label}
               className={classNames(cls.link, { [cls.scrolled]: scrolled }, [])}
               href={link.href}
               tabIndex={0}
               aria-label={link.label}
+              variants={navItem}
             >
               {link.label}
-            </a>
+            </motion.a>
           ))}
-        </nav>
+        </motion.nav>
         <BurgerButton 
           className={classNames(cls.burger, { [cls.scrolled]: scrolled }, [])}
           menuOpen={menuOpen}
@@ -63,6 +108,6 @@ export const Header = () => {
           onClose={handleNavLinkClick}
         />
       </div>
-    </header>
+    </motion.header>
   );
 };

@@ -32,6 +32,7 @@
   transition: color 0.35s;
   color: #fff;
 }
+
 .nav.scrolled {
   color: #232323;
 }
@@ -49,6 +50,7 @@
 .link.scrolled {
   color: #232323;
 }
+
 .link:hover,
 .link:focus {
   color: var(--color-secondary);

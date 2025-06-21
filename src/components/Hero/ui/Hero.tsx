@@ -1,25 +1,35 @@
 import cls from './Hero.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import HeroImage from '../../../shared/assets/images/hero.avif';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 interface HeroProps {
   className?: string;
 }
 
 export const Hero = ({ className }: HeroProps) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+
   return (
-    <section className={classNames(cls.section, {}, [className || ''])}>
+    <section ref={ref} className={classNames(cls.section, {}, [className || ''])}>
       <div className={classNames(cls.container, {}, [])}>
-        <div className={classNames(cls.background, {}, [])}>
+        <motion.div
+          style={{ y }}
+          className={classNames(cls.background, {}, [])}
+        >
           <img
             className={classNames(cls.image, {}, [])}
             src={HeroImage}
             alt="Hero"
           />
           <div className={classNames(cls.black, {}, [])}></div>
-          <div className={classNames(cls.black, {}, [])}></div>
-        </div>
+        </motion.div>
         <div className={classNames(cls.content, {}, [])}>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
