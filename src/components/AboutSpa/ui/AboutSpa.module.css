@@ -1,6 +1,6 @@
 .section {
   padding: 80px 24px;
-  background: #e9e3d3;
+  background: var(--bg-premium);
 }
 
 .container {

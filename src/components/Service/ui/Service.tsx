@@ -1,8 +1,7 @@
 import cls from './Service.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { ProductCard } from '../../ProductCard';
-import ArrowLeft from '../../../shared/ui/ArrowLeft/ArrowLeft';
-import ArrowRight from '../../../shared/ui/ArrowRight/ArrowRight';
+import ArrowRightIconDark from '../../../shared/assets/images/icons/arrow-right-dark.svg';
 import Title from '../../../shared/ui/Title/Title';
 
 interface ServiceProps {
@@ -26,10 +25,18 @@ export const Service = ({ className }: ServiceProps) => (
         </div>
         <div className={cls.navigation}>
           <button type="button" className={cls.navButton}>
-            <ArrowLeft />
+            <img 
+              src={ArrowRightIconDark}
+              alt='arrow-right'
+              className={classNames(cls.arrow, {}, [])}
+            />
           </button>
           <button type="button" className={cls.navButton}>
-            <ArrowRight />
+            <img 
+              src={ArrowRightIconDark}
+              alt='arrow-right'
+              className={classNames(cls.arrow, {}, [])}
+            />
           </button>
         </div>
       </div>
