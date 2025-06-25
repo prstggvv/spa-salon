@@ -5,6 +5,7 @@ import { NavMenu } from '../../../components/NavMenu';
 import { navLinks } from '../../NavMenu/model/navData';
 import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
 import { motion } from 'framer-motion';
+import LogoSvg from '../../../shared/assets/images/icons/logo.svg';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -70,13 +71,17 @@ export const Header = () => {
 
   return (
     <motion.header
-      initial="hidden"
+      initial='hidden'
       animate="visible"
       variants={fadeIn}
       className={classNames(cls.header, { [cls.scrolled]: scrolled })}
     >
       <div className={classNames(cls.container)}>
-        <p className={classNames(cls.photo, { [cls.scrolled]: scrolled })}>Logo</p>
+        <img
+          className={classNames(cls.photo, {}, [])}
+          src={LogoSvg}
+          alt='картинка'
+        />
         <motion.nav 
           className={classNames(cls.nav, { [cls.scrolled]: scrolled }, [])}
           variants={staggerChildren}

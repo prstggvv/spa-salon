@@ -4,7 +4,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
-  aspect-ratio: 2 / 3;
+  border-radius: 10px;
 }
 
 .imageWrap {

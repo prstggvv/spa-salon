@@ -68,8 +68,12 @@ export const Carousel = ({ className }: { className?: string }) => {
 
   return (
     <div className={classNames(cls.carouselWrapper, {}, [className || ''])}>
-      <div className={cls.carousel}>
-        <AnimatePresence initial={false} custom={direction} mode="wait">
+      <div className={classNames(cls.carousel, {}, [])}>
+        <AnimatePresence 
+          initial={false}
+          custom={direction}
+          mode="wait"
+        >
           <motion.div
             key={currentIndex}
             custom={direction}
@@ -83,34 +87,34 @@ export const Carousel = ({ className }: { className?: string }) => {
             }}
             className={cls.slide}
           >
-            <div className={cls.stars}>
+            <div className={classNames(cls.stars, {}, [])}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <span
                   key={i}
                   className={classNames(cls.star, {
                     [cls.filled]: i < testimonials[currentIndex].rating,
-                  })}
+                  }, [])}
                 >
                   ★
                 </span>
               ))}
             </div>
-            <div className={cls.textBlock}>
-              <p className={cls.text}>
+            <div className={classNames(cls.textBlock, {}, [])}>
+              <p className={classNames(cls.text, {}, [])}>
                 "{testimonials[currentIndex].text}"
               </p>
-              <h3 className={cls.name}>{testimonials[currentIndex].name}</h3>
+              <h3 className={classNames(cls.name, {}, [])}>{testimonials[currentIndex].name}</h3>
             </div>
           </motion.div>
         </AnimatePresence>
-        <div className={cls.dotsWrapper}>
+        <div className={classNames(cls.dotsWrapper, {}, [])}>
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={classNames(cls.dot, {
                 [cls.active]: index === currentIndex,
-              })}
+              }, [])}
               aria-label={`Перейти к слайду ${index + 1}`}
               tabIndex={0}
               type="button"

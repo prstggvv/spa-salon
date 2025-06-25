@@ -3,7 +3,6 @@ import cls from './AboutSpa.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import Title from '../../../shared/ui/Title/Title';
 
-
 interface AboutSpaProps {
   className?: string;
 }
@@ -28,11 +27,14 @@ export const AboutSpa = ({ className }: AboutSpaProps) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+          Практика показывает, что большие продажи далеко не всегда 
+          зависят от того, сколько вы потратите на продвижение сайта и 
+          рекламную кампанию. Значительно сильнее конечный результат 
+          зависит от правильной организации кампании. Мы достигаем 
+          максимальной эффективности и помогаем сберечь бюджеты наших 
+          клиентов, используя стратегический интернет-маркетинг.
         </motion.p>
       </div>
-    </motion.section >
+    </motion.section>
   )
 }
