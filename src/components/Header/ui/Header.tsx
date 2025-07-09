@@ -5,7 +5,7 @@ import { NavMenu } from '../../../components/NavMenu';
 import { navLinks } from '../../NavMenu/model/navData';
 import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
 import { motion } from 'framer-motion';
-import LogoSvg from '../../../shared/assets/images/icons/logo.svg';
+import LogoSvg from '../../../shared/assets/images/icons/logo_main.svg';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
