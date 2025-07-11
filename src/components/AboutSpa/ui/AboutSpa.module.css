@@ -1,36 +1,63 @@
 .section {
-  padding: 80px 24px;
+  padding: 100px 0;
+  width: 100%;
   background: var(--bg-premium);
-  min-height: 60vh;
 }
 
 .container {
-  width: 95.83%;
+  border: 3px solid black;
+  width: 57.81%;
+  padding: 60px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 30px;
+  gap: 50px;
 }
 
-.title {
-  font-size: 28px;
-  line-height: 1rem;
-  font-family: var(--font-open-sans-semibold);
-  color: var(--color-black);
-  margin: 0;
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 40px;
+}
+
+.line {
+  width: 160px;
+  border: 1px solid black;
 }
 
 .subtitle {
-  max-width: 812px;
+  max-width: 733px;
   width: 100%;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 150%;
   font-family: var(--font-sf-pro-light);
   color: var(--color-black);
   margin: 0;
   letter-spacing: 0.04rem;
 }
 
+.button {
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 733px;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid black;
+  font-size: 16px;
+  line-height: 20px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}

@@ -1,7 +1,6 @@
 .button {
-  border-radius: 2px;
-  border: none;
   cursor: auto;
   font-family: var(--font-open-sans-semibold);
-  font-size: 14px;
+  margin: 0;
+  cursor: pointer;
 }
