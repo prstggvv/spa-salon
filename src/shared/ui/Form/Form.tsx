@@ -24,44 +24,42 @@ export const Form = ({ className }: IFormProps) => {
 
   return (
     <div className={classNames(cls.block, {}, [className || ''])}>
-      <Title 
-        className={classNames(cls.title, {}, [])}
-        children='Свяжитесь с нами'
-      />
       <form
         className={classNames(cls.form, {}, [])}
         onSubmit={handleSubmit}
       >
-        <Input 
-          className={classNames(cls.input, {}, [])}
-          type='text'
-          placeholder='Имя'
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-          value={values.names}
-          name='name'
-          error={Object.prototype.hasOwnProperty.call(errors, 'names')}
-          errorText={errors.names || ''}
-        />
-        <Input 
-          className={classNames(cls.input, {}, [])}
-          type='email'
-          placeholder='E-mail'
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-          value={values.email}
-          name='email'
-          error={Object.prototype.hasOwnProperty.call(errors, 'email')}
-          errorText={errors.email || ''}
-        />
-        <Input 
-          className={classNames(cls.input, {}, [])}
-          type='text'
-          placeholder='+7 (xxx) xxx-xx-xx'
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-          value={values.phone}
-          name='phone'
-          error={Object.prototype.hasOwnProperty.call(errors, 'phone')}
-          errorText={errors.phone || ''}
-        />
+        <div className={classNames(cls.inputs, {}, [])}>
+          <Input
+            className={classNames(cls.input, {}, [])}
+            type='text'
+            placeholder='Имя'
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
+            value={values.names}
+            name='name'
+            error={Object.prototype.hasOwnProperty.call(errors, 'names')}
+            errorText={errors.names || ''}
+          />
+          <Input
+            className={classNames(cls.input, {}, [])}
+            type='text'
+            placeholder='+7 (xxx) xxx-xx-xx'
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
+            value={values.phone}
+            name='phone'
+            error={Object.prototype.hasOwnProperty.call(errors, 'phone')}
+            errorText={errors.phone || ''}
+          />
+          <Input
+            className={classNames(cls.input, {}, [])}
+            type='email'
+            placeholder='E-mail'
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
+            value={values.email}
+            name='email'
+            error={Object.prototype.hasOwnProperty.call(errors, 'email')}
+            errorText={errors.email || ''}
+          />
+        </div>
         <Button
           className={classNames(cls.button, {}, [])}
           type='submit'

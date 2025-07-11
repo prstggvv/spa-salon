@@ -5,6 +5,7 @@ import { Reviews } from "../../../components/Reviews";
 import { AboutSpa } from "../../../components/AboutSpa";
 import { Hero } from "../../../components/Hero";
 import { Service } from "../../../components/Service";
+import { Contact } from "../../../components/Contact";
 
 interface MainProps {
   className?: string;
@@ -18,6 +19,7 @@ const Main = ({ className }: MainProps) => {
       <AboutSpa />
       <Service />
       <Reviews />
+      <Contact />
     </div>
   )
 };
