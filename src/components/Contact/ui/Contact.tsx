@@ -12,11 +12,13 @@ export const Contact = ({ className }: IContactProps) => {
     <section className={classNames(cls.section, {}, [className || ''])}>
       <div className={classNames(cls.container, {}, [])}>
         <div className={classNames(cls.mainInfo, {}, [])}>
-          <div className={classNames(cls.block, {}, [])}>
-            <Title
-              children={`Запись на прием`}
-              className={classNames(cls.title, {}, [])}
-            />
+          <div className={classNames(cls.titleBackground, {}, [])}>
+            <div className={classNames(cls.block, {}, [])}>
+              <Title
+                children={`Запись на прием`}
+                className={classNames(cls.title, {}, [])}
+              />
+            </div>
           </div>
           <div className={classNames(cls.line, {}, [])}></div>
           <div className={classNames(cls.subtitle, {}, [])}>
