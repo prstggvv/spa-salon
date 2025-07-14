@@ -13,7 +13,7 @@ interface MainProps {
 
 const Main = ({ className }: MainProps) => {
   return (
-    <div className={classNames(cls.main, {}, [className || ''])}>
+    <div className={classNames(cls.main, {}, [className ?? ''])}>
       <Header />
       <Hero />
       <AboutSpa />

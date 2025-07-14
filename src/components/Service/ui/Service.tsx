@@ -5,6 +5,7 @@ import FirstImage from '../../../shared/assets/images/cards/first.jpeg';
 import SecondImage from '../../../shared/assets/images/cards/second.jpeg';
 import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
 import { Card } from '../../Card/ui/Card';
+import { ProductCard } from '../../ProductCard';
 
 interface IServiceData {
   className?: string;
@@ -19,23 +20,11 @@ export const Service = ({ className }: IServiceData) => {
           children='Наши услуги'
         />
         <ul className={classNames(cls.list, {}, [])}>
-          <Card 
-            title='Массаж'
-            image={FirstImage}
-            price='3600'
-            onMore={() => {}}
+          <ProductCard 
           />
-          <Card 
-            title='Массаж'
-            image={SecondImage}
-            price='3600'
-            onMore={() => {}}
+          <ProductCard
           />
-          <Card 
-            title='Массаж'
-            image={ThirdImage}
-            price='3600'
-            onMore={() => {}}
+          <ProductCard
           />
         </ul>
       </div>
