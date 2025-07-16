@@ -41,11 +41,11 @@ const getGenderText = (gender?: string) => {
 
 export const ProductCard = ({
   className,
-  title = 'Массаж',
-  image = 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  title,
+  image,
   alt = 'Изображение услуги',
-  gender = 'unisex',
-  price = '2800 руб.',
+  gender,
+  price,
 }: ProductCardProps) => (
   <li
     className={classNames(cls.card, {}, [className || ''])}
@@ -61,25 +61,21 @@ export const ProductCard = ({
     />
     <div className={classNames(cls.overlay, {}, [])} />
     <div className={classNames(cls.genderInfo, {}, [])}>
-      <div className={cls.genderWrap}>
-        {getGenderIcon(gender)}
-          <span 
-            className={cls.genderText}
-          >
-              {getGenderText(gender)}
-          </span>
-      </div>
+      {getGenderIcon(gender)}
+      <span
+        className={cls.genderText}
+      >
+        {getGenderText(gender)}
+      </span>
     </div>
-    <div className={classNames(cls.titleWrap, {}, [])}>
-      <h3 className={cls.heading}>
+    <div className={classNames(cls.mainInfo, {}, [])}>
+      <h3 className={classNames(cls.heading, {}, [])}>
         {title}
       </h3>
-    </div>
-    <div className={classNames(cls.priceWrap, {}, [])}>
-      <div className={classNames(cls.priceContent, {}, [])}>
-        <div className={classNames(cls.priceValue, {}, [])}>
+      <div className={classNames(cls.priceWrap, {}, [])}>
+        <p className={classNames(cls.priceValue, {}, [])}>
           {price}
-        </div>
+        </p>
         <img
           className={classNames(cls.arrow, {}, [])}
           src={ArrowRightSvg}

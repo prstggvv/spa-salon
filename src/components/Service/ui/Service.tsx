@@ -1,11 +1,9 @@
 import cls from './Service.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import Title from '../../../shared/ui/Title/Title';
-import FirstImage from '../../../shared/assets/images/cards/first.jpeg';
-import SecondImage from '../../../shared/assets/images/cards/second.jpeg';
-import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
-import { Card } from '../../Card/ui/Card';
 import { ProductCard } from '../../ProductCard';
+import { serviceData } from '../model/serviceData';
+import StrelkaImage from '../../../shared/assets/images/icons/Strelka.svg';
 
 interface IServiceData {
   className?: string;
@@ -19,14 +17,11 @@ export const Service = ({ className }: IServiceData) => {
           className={classNames(cls.title, {}, [])}
           children='Наши услуги'
         />
-        <ul className={classNames(cls.list, {}, [])}>
-          <ProductCard 
-          />
-          <ProductCard
-          />
-          <ProductCard
-          />
-        </ul>
+        <div className={classNames(cls.info, {}, [])}>
+          <ul className={classNames(cls.list, {}, [])}>
+            
+          </ul>
+        </div>
       </div>
     </section>
   )
