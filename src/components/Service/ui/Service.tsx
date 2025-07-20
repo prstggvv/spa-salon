@@ -4,6 +4,7 @@ import Title from '../../../shared/ui/Title/Title';
 import { ProductCard } from '../../ProductCard';
 import { serviceData } from '../model/serviceData';
 import StrelkaImage from '../../../shared/assets/images/icons/Strelka.svg';
+import { Card } from '../../Card';
 
 interface IServiceData {
   className?: string;
@@ -19,7 +20,15 @@ export const Service = ({ className }: IServiceData) => {
         />
         <div className={classNames(cls.info, {}, [])}>
           <ul className={classNames(cls.list, {}, [])}>
-            
+            {serviceData.map((s, i) => {
+              return (
+                <Card 
+                  title={s.title}
+                  image={s.image}
+                  gender={s.gender}
+                />
+              )
+            })}
           </ul>
         </div>
       </div>

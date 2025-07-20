@@ -28,10 +28,4 @@ export const serviceData: IServiceProps[] = [
     price: '3000 руб.',
     gender: 'unisex',
   },
-  {
-    title: 'Универсальный массаж',
-    image: ThirdImage,
-    price: '3000 руб.',
-    gender: 'unisex',
-  },
 ];

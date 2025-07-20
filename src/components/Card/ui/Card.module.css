@@ -1,66 +1,104 @@
 .card {
   background-color: rgb(255, 251, 242);
   width: 100%;
-  padding: 30px;
+  max-width: 400px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 50px;
-}
-
-.gap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 27px;
+  align-items: flex-start;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  flex: 1 0 24.305%;
+  cursor: pointer;
 }
 
 .image {
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  transition: transform 0.3s;
+  display: block;
 }
 
-.info {
-  width: 100%;
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  transition: background 0.3s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card:hover .overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+.gender {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 0;
-}
-
-.heading {
-  font-size: 20px;
-  font-family: var(--font-roboto-regular);
-  line-height: 26px;
-  margin: 0;
-}
-
-.price {
-  font-size: 14px;
-  font-family: var(--font-sf-pro-light);
-  line-height: 20px;
-  letter-spacing: 0.25px;
-  margin: 0;
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0;
   gap: 8px;
-  width: 100%;
 }
 
-.button {
-  background-color: rgb(10, 71, 75);
-  margin: 0;
-  border: none;
-  width: 100%;
+.genderIcon {
+  display: block;
+}
+
+.genderText {
+  font-size: 0.95rem;
+  font-family: var(--font-open-sans-semibold);
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.svgWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-premium);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
-  padding: 23px;
+  padding: 10px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
+
+.card:hover .svgWrap {
+  opacity: 1;
+}
+
+.svg {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+  fill: black;
+}
+
+.titleWrap {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-family: var(--font-roboto-regular);
+  font-size: 14px;
+  color: var(--color-white);
+  z-index: 2;
+  margin: 0;
+}
+
+
