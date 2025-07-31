@@ -1,50 +1,40 @@
 .card {
   background-color: rgb(255, 251, 242);
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  position: relative;
+  align-items: center;
+  gap: 50px;
+  flex-shrink: 0;
+}
+
+.gap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+
+.imageWrapper {
   margin: 0;
-  overflow: hidden;
-  flex: 1 0 24.305%;
-  cursor: pointer;
+  position: relative;
 }
 
 .image {
+  z-index: 0;
   width: 100%;
-  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
-  display: block;
+  object-position: center;
 }
 
-.card:hover .image {
-  transform: scale(1.05);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  transition: background 0.3s;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.card:hover .overlay {
-  background: rgba(0,0,0,0.6);
-}
-
-.gender {
+.genderInfo {
   position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 2;
   display: flex;
   align-items: center;
+  padding: 0.25rem 0.5rem;
   gap: 8px;
 }
 
@@ -53,52 +43,87 @@
 }
 
 .genderText {
-  font-size: 0.95rem;
+  font-size: 16px;
   font-family: var(--font-open-sans-semibold);
   color: #fff;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
-.svgWrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--bg-premium);
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.heading {
+  font-size: 18px;
+  font-family: var(--font-roboto-regular);
+  line-height: 26px;
+  margin: 0;
+}
+
+.price {
+  font-size: 14px;
+  font-family: var(--font-sf-pro-light);
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  gap: 8px;
+  width: 100%;
+}
+
+.button {
+  margin: 0;
+  border: none;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  z-index: 2;
-  opacity: 0;
+  color: black;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.buttonLeft {
+  background-color: var(--bg-prime);
+  border: none;
+  color: var(--color-white);
   transition: opacity .3s ease;
 }
 
-.card:hover .svgWrap {
-  opacity: 1;
+.buttonLeft:hover {
+  opacity: .7;
 }
 
-.svg {
-  width: 24px;
-  height: 24px;
-  object-fit: cover;
-  object-position: center;
-  margin: 0;
-  fill: black;
+.buttonRight {
+  background-color: transparent;
+  border: 1px solid var(--bg-prime);
+  transition: all .3s ease;
 }
 
-.titleWrap {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-family: var(--font-roboto-regular);
-  font-size: 14px;
+.buttonRight:hover {
+  background-color: var(--bg-prime);
   color: var(--color-white);
-  z-index: 2;
-  margin: 0;
 }
 
+@media screen and (max-width: 767px) {
+  .info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
+@media screen and (max-width: 489px) {
+  .buttons {
+    flex-direction: column;
+  }
+}

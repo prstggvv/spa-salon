@@ -41,7 +41,7 @@ export const Header = () => {
       opacity: 1,
       y: 0,
       transition: { 
-        duration: 0.5,
+        duration: 0.3,
       }
     },
   };
@@ -97,6 +97,8 @@ export const Header = () => {
               tabIndex={0}
               aria-label={link.label}
               variants={navItem}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
             >
               {link.label}
             </motion.a>

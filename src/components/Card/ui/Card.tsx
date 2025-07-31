@@ -1,21 +1,31 @@
 import cls from './Card.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import ArrowRightSvg from '../../../shared/assets/images/icons/arrow-right.svg';
 import { User, Users } from 'lucide-react';
 
 interface ICardData {
   className?: string;
   title: string;
   image: string;
-  gender?: 'men' | 'women' | 'unisex';
+  price: string;
+  onMore?: () => void;
+  gender?: string;
+  cards: number;
 }
 
 export const Card = ({
   className,
   title,
   image,
+  price,
+  onMore,
   gender,
+  cards,
 }: ICardData) => {
+  const style = {
+    flex: `0 0 calc(${100 / cards}% - 20px)`,
+    maxWidth: `calc(${100 / cards}% - 20px)`,
+  };
+
   const getGenderIcon = (gender?: string) => {
     switch (gender) {
       case 'men':
@@ -28,7 +38,7 @@ export const Card = ({
         return <Users className={cls.genderIcon} color="#a3a3a3" size={20} aria-label="Для всех" />;
     }
   };
-  
+
   const getGenderText = (gender?: string) => {
     switch (gender) {
       case 'men':
@@ -42,34 +52,61 @@ export const Card = ({
     }
   };
 
+  const getBackgroundColor = (gender?: string) => {
+    switch (gender) {
+      case 'men':
+        return 'rgb(219 234 254)';
+      case 'women':
+        return 'rgb(252 231 243)';
+      case 'unisex':
+        return 'rgb(220 252 231)';
+      default:
+        return 'rgb(220 252 231)';
+    }
+  }
+
   return (
-    <li 
+    <div
       className={classNames(cls.card, {}, [className || ''])}
     >
-      <img 
-        className={classNames(cls.image, {}, [])}
-        alt='#'
-        src={image}
-      />
-      <div className={classNames(cls.overlay, {}, [])} />
-      <div className={classNames(cls.gender, {}, [])}>
-        {getGenderIcon(gender)}
-        <p className={classNames(cls.genderText, {}, [])}>
-          {getGenderText(gender)}
-        </p>
+      <div className={classNames(cls.gap, {}, [])}>
+        <div className={classNames(cls.imageWrapper)}>
+          <img
+            className={classNames(cls.image, {}, [])}
+            alt='картинка'
+            src={image}
+          />
+          <div
+            className={classNames(cls.genderInfo, {}, [getBackgroundColor(gender)])}
+          >
+            {getGenderIcon(gender)}
+            <span
+              className={classNames(cls.genderText, {}, [])}
+            >
+              {getGenderText(gender)}
+            </span>
+          </div>
+        </div>
+        <div className={classNames(cls.info, {}, [])}>
+          <h3 className={classNames(cls.heading, {}, [])}>{title}</h3>
+          <p className={classNames(cls.price, {}, [])}>
+            {`${price} руб`}
+          </p>
+        </div>
       </div>
-      <div className={classNames(cls.svgWrap, {}, [])}>
-        <img 
-          className={classNames(cls.svg, {}, [])}
-          alt='#'
-          src={ArrowRightSvg}
-        />
+      <div className={classNames(cls.buttons, {}, [])}>
+        <button
+          className={classNames(cls.button, {}, [cls.buttonLeft])}
+          onClick={onMore}
+        >
+          Подробнее
+        </button>
+        <button
+          className={classNames(cls.button, {}, [cls.buttonRight])}
+        >
+          Купить
+        </button>
       </div>
-      <div className={classNames(cls.titleWrap, {}, [])}>
-        <h3 className={classNames(cls.title, {}, [])}>
-          {title}
-        </h3>
-      </div>
-    </li>
+    </div>
   )
 }

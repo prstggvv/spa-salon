@@ -15,7 +15,7 @@ export const Hero = ({ className }: HeroProps) => {
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
   return (
     <section ref={ref} className={classNames(cls.section, {}, [className || ''])}>
@@ -38,7 +38,7 @@ export const Hero = ({ className }: HeroProps) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={classNames(cls.title, {}, [])}
           >
-            Amoveo Spa
+            Le Hola Spa
           </motion.h1>
           <motion.p
             className={classNames(cls.subtitle, {}, [])}

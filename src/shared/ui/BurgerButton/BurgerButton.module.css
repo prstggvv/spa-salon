@@ -15,7 +15,7 @@
 .burgerLine {
   width: 100%;
   height: 4px;
-  background: var(--color-secondary);
+  background: var(--bg-premium);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(.4,2,.6,1);
   position: absolute;
@@ -37,16 +37,19 @@
 .burger.open .line1,
 .burgerLine.line1.active {
   transform: translateY(8px) rotate(45deg);
+  background-color: var(--bg-prime);
 }
 
 .burger.open .line2,
 .burgerLine.line2.active {
   opacity: 0;
+  background-color: var(--bg-prime);
 }
 
 .burger.open .line3,
 .burgerLine.line3.active {
   transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--bg-prime);
 }
 
 .mobileNav {
@@ -57,6 +60,7 @@
   .burger {
     display: flex;
   }
+
   .mobileNav {
     display: flex;
     flex-direction: column;
