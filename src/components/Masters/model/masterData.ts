@@ -6,7 +6,7 @@ interface IModelDataProps {
   text: string;
 }
 
-export const masterData = [
+export const masterData: IModelDataProps[] = [
   {
     image: ImageWrapp,
     name: 'Игорь Зудин',
