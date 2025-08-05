@@ -5,6 +5,8 @@ import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
 interface IServiceProps {
   id: number;
   title: string;
+  text?: string | '';
+  master?: string | '';
   image: string;
   price: string;
   gender: 'men' | 'women' | 'unisex';
@@ -17,6 +19,8 @@ export const serviceData: IServiceProps[] = [
     image: FirstImage,
     price: '2800',
     gender: 'men',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
   {
     id: 2,
@@ -24,6 +28,8 @@ export const serviceData: IServiceProps[] = [
     image: SecondImage,
     price: '3200',
     gender: 'women',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
   {
     id: 3,
@@ -31,6 +37,8 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
   {
     id: 4,
@@ -38,6 +46,8 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
   {
     id: 5,
@@ -45,6 +55,8 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
   {
     id: 6,
@@ -52,6 +64,8 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
   {
     id: 7,
@@ -59,5 +73,7 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
+    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    master: 'Игорь Зудин',
   },
 ];

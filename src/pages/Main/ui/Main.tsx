@@ -10,16 +10,28 @@ import { Masters } from "../../../components/Masters";
 import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
+import { useState } from "react";
 
 interface MainProps {
   className?: string;
 }
 
 const Main = ({ className }: MainProps) => {
+  const [isPopup, setIsPopup] = useState<boolean>(false);
+
+  const handleOpenPopup = () => {
+    setIsPopup(true);
+  }
+
+  const handleClosePopup = () => {
+    setIsPopup(false);
+  }
+
   return (
     <div className={classNames(cls.main, {}, [className ?? ''])}>
       <Popup 
-        isOpen={false}
+        isOpen={isPopup}
+        onClose={handleClosePopup}
       />
       <Header />
       <Hero />
@@ -27,7 +39,9 @@ const Main = ({ className }: MainProps) => {
       <Masters />
       <Advantages />
       <Reviews />
-      <Service />
+      <Service 
+        onClick={handleOpenPopup}
+      />
       <ContactForm />
       <Footer />
     </div>

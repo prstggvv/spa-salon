@@ -10,9 +10,10 @@ import { motion } from 'framer-motion';
 
 interface IServiceData {
   className?: string;
+  onClick: () => void;
 }
 
-export const Service = ({ className }: IServiceData) => {
+export const Service = ({ className, onClick }: IServiceData) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cards, setCards] = useState(3);
 
@@ -122,11 +123,11 @@ export const Service = ({ className }: IServiceData) => {
                     style={{ ...style }}
                   >
                     <Card
-                      cards={cards}
                       title={s.title}
                       image={s.image}
                       price={s.price}
                       gender={s.gender}
+                      onMore={onClick}
                     />
                   </motion.li>
                 )

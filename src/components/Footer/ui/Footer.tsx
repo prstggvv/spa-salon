@@ -4,8 +4,6 @@ import { Phone, MapPin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import VKSvg from '../../../shared/assets/images/icons/hrefs/vk.svg';
 import TelegramSvg from '../../../shared/assets/images/icons/hrefs/telegram.svg';
-import { footerData } from '../model/footerData';
-import PhoneImage from '../../../shared/assets/images/icons/lucide/phone.svg';
 
 interface IFooterData {
   className?: string;
@@ -30,7 +28,6 @@ export const Footer = ({ className }: IFooterData) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };

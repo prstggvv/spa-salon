@@ -9,7 +9,6 @@ interface ICardData {
   price: string;
   onMore?: () => void;
   gender?: string;
-  cards: number;
 }
 
 export const Card = ({
@@ -19,12 +18,10 @@ export const Card = ({
   price,
   onMore,
   gender,
-  cards,
 }: ICardData) => {
-  const style = {
-    flex: `0 0 calc(${100 / cards}% - 20px)`,
-    maxWidth: `calc(${100 / cards}% - 20px)`,
-  };
+  const handleCardClick = () => {
+    onMore();
+  }
 
   const getGenderIcon = (gender?: string) => {
     switch (gender) {
@@ -97,7 +94,7 @@ export const Card = ({
       <div className={classNames(cls.buttons, {}, [])}>
         <button
           className={classNames(cls.button, {}, [cls.buttonLeft])}
-          onClick={onMore}
+          onClick={handleCardClick}
         >
           Подробнее
         </button>

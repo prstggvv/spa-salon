@@ -1,4 +1,3 @@
-import { Phone, MapPin, Mail } from 'lucide-react';
 import PhoneIcon from '../../../shared/assets/images/icons/lucide/phone.svg';
 
 interface IFooterDataProps {

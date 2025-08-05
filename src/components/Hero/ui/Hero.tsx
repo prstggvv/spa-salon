@@ -3,7 +3,6 @@ import { classNames } from '../../../shared/lib/classNames/classNames';
 import HeroImage from '../../../shared/assets/images/hero.avif';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import Button from '../../../shared/ui/Button/Button';
 
 interface HeroProps {
   className?: string;
