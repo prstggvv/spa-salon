@@ -1,25 +1,113 @@
 .section {
   width: 100%;
   margin: 0;
-  background-color: rgb(167, 188, 184);
+  background-color: var(--bg-premium);
 }
 
 .container {
-  padding: 107px 0 116px;
-  width: 83.67%;
+  padding: 100px 20px 116px;
+  max-width: 1180px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  position: relative;
+  gap: 30px;
+  width: 100%;
+  margin: 0;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.button:hover {
+  opacity: .4;
+}
+
+.svg {
+  width: 20px;
+  height: 20px;
+}
+
+.buttonLeft {
+  transform: rotate(180deg);
+}
+
+.slider {
+  width: 100%;
+  margin-right: -20px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .list {
   display: flex;
-  list-style: none;
+  gap: 20px;
   padding: 0;
-  gap: 30px;
-  margin: 0;
+  list-style: none;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
 }
 
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all .4s ease-in-out;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--bg-prime);
+  cursor: pointer;
+}
+
+.dotActive {
+  background-color: transparent;
+  border: 1px solid var(--bg-prime);
+}
+
+@media screen and (max-width: 489px) {
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .info {
+    gap: 0px;
+    align-items: center;
+  }
+
+  .button {
+    width: 36px;
+    height: 36px;
+    z-index: 4;
+  }
+
+  .buttonLeft {
+    left: 40px;
+  }
+
+  .buttonRight {
+    right: 40px;
+  }
+}

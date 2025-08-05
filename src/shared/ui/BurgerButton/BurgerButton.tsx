@@ -21,13 +21,25 @@ const BurgerButton = ({ className, menuOpen, handleBurgerClick, handleKeyDown }:
       type='button'
     >
       <span
-        className={classNames(cls.burgerLine, { [cls.line1]: true, [cls.active]: menuOpen }, [])} 
+        className={classNames(cls.burgerLine, 
+          { 
+            [cls.line1]: true, 
+            [cls.active]: menuOpen 
+          }, [])} 
       />
       <span 
-        className={classNames(cls.burgerLine, { [cls.line2]: true, [cls.active]: menuOpen }, [])} 
+        className={classNames(cls.burgerLine, 
+          {
+            [cls.line2]: true, 
+            [cls.active]: menuOpen 
+          }, [])} 
       />
       <span
-        className={classNames(cls.burgerLine, { [cls.line3]: true, [cls.active]: menuOpen }, [])} 
+        className={classNames(cls.burgerLine, 
+          { 
+            [cls.line3]: true, 
+            [cls.active]: menuOpen 
+          }, [])} 
       />
     </button>
   );

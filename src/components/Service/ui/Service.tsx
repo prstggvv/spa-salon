@@ -1,43 +1,174 @@
 import cls from './Service.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import Title from '../../../shared/ui/Title/Title';
-import FirstImage from '../../../shared/assets/images/cards/first.jpeg';
-import SecondImage from '../../../shared/assets/images/cards/second.jpeg';
-import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
-import { Card } from '../../Card/ui/Card';
+import { serviceData } from '../model/serviceData';
+import { Card } from '../../Card';
+
+import StrelkaImage from '../../../shared/assets/images/icons/Strelka.svg';
+import { useEffect, useState } from 'react';
+import Titles from '../../../shared/ui/Titles/Titles';
+import { motion } from 'framer-motion';
 
 interface IServiceData {
   className?: string;
+  onClick: () => void;
 }
 
-export const Service = ({ className }: IServiceData) => {
+export const Service = ({ className, onClick }: IServiceData) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cards, setCards] = useState(3);
+
+  console.log(cards);
+  console.log(serviceData);
+
+  const updateCardsPerView = () => {
+    const width = window.innerWidth;
+    if (width < 656) {
+      setCards(1)
+    } else if (width < 1024) {
+      setCards(2)
+    } else {
+      setCards(3)
+    }
+  }
+
+  useEffect(() => {
+    updateCardsPerView();
+
+    window.addEventListener('resize', updateCardsPerView);
+    return () => {
+      window.removeEventListener('resize', updateCardsPerView);
+    }
+  }, []);
+
+  useEffect(() => {
+    const max = Math.max(0, serviceData.length - cards);
+    if (currentIndex > max) {
+      setCurrentIndex(max);
+    }
+  }, [cards, serviceData.length, currentIndex]);
+
+  const max = Math.max(0, serviceData.length - cards);
+  const total = Math.ceil(serviceData.length / cards);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, max));
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => Math.min(prev - 1, 0));
+  }
+
+  const goToSlide = (dotIndex: number) => {
+    const newIndex = Math.min(dotIndex * cards, max)
+    setCurrentIndex(newIndex);
+  }
+
+  const getCurrentDotIndex = () => {
+    return Math.floor(currentIndex / cards)
+  }
+  
+  const style = {
+    flex: `0 0 calc(${100 / cards}% - 20px)`,
+    maxWidth: `calc(${100 / cards}% - 20px)`,
+  };
+
   return (
     <section className={classNames(cls.section, {}, [className || ''])}>
       <div className={classNames(cls.container, {}, [])}>
-        <Title
-          className={classNames(cls.title, {}, [])}
-          children='Наши услуги'
+        <Titles
+          dark={false}
+          uptitle='Сервис'
+          title='Наши услуги'
         />
-        <ul className={classNames(cls.list, {}, [])}>
-          <Card 
-            title='Массаж'
-            image={FirstImage}
-            price='3600'
-            onMore={() => {}}
-          />
-          <Card 
-            title='Массаж'
-            image={SecondImage}
-            price='3600'
-            onMore={() => {}}
-          />
-          <Card 
-            title='Массаж'
-            image={ThirdImage}
-            price='3600'
-            onMore={() => {}}
-          />
-        </ul>
+        <div className={classNames(cls.info, {}, [])}>
+          <motion.button
+            className={classNames(cls.button, {}, [cls.buttonLeft])}
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+            initial={{ opacity: 0, x: -20, rotate: 180 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img
+              className={classNames(cls.svg, {}, [])}
+              alt='#'
+              src={StrelkaImage}
+            />
+          </motion.button>
+          <motion.div
+            className={classNames(cls.slider, {}, [])}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <ul
+              className={classNames(cls.list, {}, [])}
+              style={{
+                transform: `translateX(-${(currentIndex * 100) / cards}%)`,
+              }}
+            >
+              {serviceData.map((s) => {
+                return (
+                  <motion.li
+                    className={classNames(cls.cardLi, {}, [])}
+                    key={s.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    style={{ ...style }}
+                  >
+                    <Card
+                      title={s.title}
+                      image={s.image}
+                      price={s.price}
+                      gender={s.gender}
+                      onMore={onClick}
+                    />
+                  </motion.li>
+                )
+              })}
+            </ul>
+          </motion.div>
+          <motion.button
+            className={classNames(cls.button, {}, [cls.buttonRight])}
+            onClick={nextSlide}
+            disabled={currentIndex === max}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img
+              className={classNames(cls.svg, {}, [])}
+              alt='#'
+              src={StrelkaImage}
+            />
+          </motion.button>
+        </div>
+        {total > 1 && (
+          <div className={classNames(cls.dots, {}, [])}>
+            {Array.from({ length: total - 1 }).map((_, i) => (
+              <motion.button
+                key={i}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => goToSlide(i)}
+                className={classNames(cls.dot,
+                  {
+                    [cls.dotActive]: getCurrentDotIndex() === i
+                  }, [])}
+              >
+              </motion.button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

@@ -5,19 +5,45 @@ import { Reviews } from "../../../components/Reviews";
 import { AboutSpa } from "../../../components/AboutSpa";
 import { Hero } from "../../../components/Hero";
 import { Service } from "../../../components/Service";
+import { ContactForm } from "../../../components/ContactForm";
+import { Masters } from "../../../components/Masters";
+import { Popup } from "../../../components/Popup/ui/Popup";
+import { Advantages } from "../../../components/Advantages";
+import { Footer } from "../../../components/Footer/ui/Footer";
+import { useState } from "react";
 
 interface MainProps {
   className?: string;
 }
 
 const Main = ({ className }: MainProps) => {
+  const [isPopup, setIsPopup] = useState<boolean>(false);
+
+  const handleOpenPopup = () => {
+    setIsPopup(true);
+  }
+
+  const handleClosePopup = () => {
+    setIsPopup(false);
+  }
+
   return (
-    <div className={classNames(cls.main, {}, [className || ''])}>
+    <div className={classNames(cls.main, {}, [className ?? ''])}>
+      <Popup 
+        isOpen={isPopup}
+        onClose={handleClosePopup}
+      />
       <Header />
       <Hero />
       <AboutSpa />
-      <Service />
+      <Masters />
+      <Advantages />
       <Reviews />
+      <Service 
+        onClick={handleOpenPopup}
+      />
+      <ContactForm />
+      <Footer />
     </div>
   )
 };

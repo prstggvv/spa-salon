@@ -1,0 +1,89 @@
+.footer {
+  width: 100%;
+  margin: 0;
+  background: var(--bg-premium);
+}
+
+.container {
+  padding: 50px 20px 30px;
+  max-width: 1080px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-size: 26px;
+  font-family: var(--font-open-sans-semibold);
+  color: #1a202c;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-family: var(--font-roboto-regular);
+  color: #1a202c;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text {
+  color: #4a4a4a;
+  font-size: 16px;
+  font-family: var(--font-roboto-regular);
+  line-height: 28px;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-black);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.svg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.linkText {
+  color: #4a4a4a;
+  font-size: 16px;
+  font-family: var(--font-roboto-regular);
+  line-height: 28px;
+  margin: 0;
+}

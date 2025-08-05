@@ -1,11 +1,11 @@
 .card {
   background-color: rgb(255, 251, 242);
-  width: 100%;
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
+  flex-shrink: 0;
 }
 
 .gap {
@@ -15,10 +15,38 @@
   gap: 27px;
 }
 
+.imageWrapper {
+  margin: 0;
+  position: relative;
+}
+
 .image {
+  z-index: 0;
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.genderInfo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  gap: 8px;
+}
+
+.genderIcon {
+  display: block;
+}
+
+.genderText {
+  font-size: 16px;
+  font-family: var(--font-open-sans-semibold);
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 .info {
@@ -30,7 +58,7 @@
 }
 
 .heading {
-  font-size: 20px;
+  font-size: 18px;
   font-family: var(--font-roboto-regular);
   line-height: 26px;
   margin: 0;
@@ -54,13 +82,48 @@
 }
 
 .button {
-  background-color: rgb(10, 71, 75);
   margin: 0;
   border: none;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.buttonLeft {
+  background-color: var(--bg-prime);
+  border: none;
   color: var(--color-white);
-  padding: 23px;
+  transition: opacity .3s ease;
+}
+
+.buttonLeft:hover {
+  opacity: .7;
+}
+
+.buttonRight {
+  background-color: transparent;
+  border: 1px solid var(--bg-prime);
+  transition: all .3s ease;
+}
+
+.buttonRight:hover {
+  background-color: var(--bg-prime);
+  color: var(--color-white);
+}
+
+@media screen and (max-width: 767px) {
+  .info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 489px) {
+  .buttons {
+    flex-direction: column;
+  }
 }
