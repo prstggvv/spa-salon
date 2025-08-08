@@ -37,4 +37,13 @@ export class Api {
       method: 'GET',
     }).then((response) => this.handleResponse<T>(response));
   }
+
+  post<T>(uri: string, body: any, extraOptions?: RequestInit): Promise<T> {
+    return fetch(this.baseUrl + uri, {
+      ...this.options,
+      ...extraOptions,
+      method: 'POST',
+      body: JSON.stringify(body),
+    }).then((response) => this.handleResponse<T>(response));
+  }
 };

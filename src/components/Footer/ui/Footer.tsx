@@ -1,10 +1,7 @@
 import cls from './Footer.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import { Phone, MapPin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-import VKSvg from '../../../shared/assets/images/icons/hrefs/vk.svg';
-import TelegramSvg from '../../../shared/assets/images/icons/hrefs/telegram.svg';
-import { footerData } from '../model/footerData';
+import { footerData, footerLinks } from '../model/footerData';
 
 interface IFooterData {
   className?: string;
@@ -75,28 +72,25 @@ export const Footer = ({ className }: IFooterData) => {
           })}
         </motion.ul>
         <nav className={classNames(cls.links, {}, [])}>
-          <a
-            className={classNames(cls.link, {}, [])}
-            href='#'
-          >
-            <img
-              className={classNames(cls.svg, {}, [])}
-              alt='Логотип соцсети'
-              src={VKSvg}
-            />
-            <p className={classNames(cls.linkText, {}, [])}>Вконтакте</p>
-          </a>
-          <a
-            className={classNames(cls.link, {}, [])}
-            href='#'
-          >
-            <img
-              className={classNames(cls.svg, {}, [])}
-              alt='Логотип соцсети'
-              src={TelegramSvg}
-            />
-            <p className={classNames(cls.linkText, {}, [])}>Телеграм</p>
-          </a>
+          {footerLinks.map((l, i) => {
+            return (
+              <motion.a
+                className={classNames(cls.link, {}, [])}
+                href='#'
+                whileHover={{ scale: 1.05 }}
+                key={i}
+              >
+                <img
+                  className={classNames(cls.svg, {}, [])}
+                  alt='Логотип соцсети'
+                  src={l.icon}
+                />
+                <p className={classNames(cls.linkText, {}, [])}>
+                  {l.link}
+                </p>
+              </motion.a>
+            )
+          })}
         </nav>
       </motion.div>
     </footer>
