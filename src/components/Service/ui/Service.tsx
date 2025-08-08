@@ -11,15 +11,13 @@ import { motion } from 'framer-motion';
 interface IServiceData {
   className?: string;
   onClick: () => void;
+  onBuy: (title: string) => void;
 }
 
-export const Service = ({ className, onClick }: IServiceData) => {
+export const Service = ({ className, onClick, onBuy, }: IServiceData) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cards, setCards] = useState(3);
-
-  console.log(cards);
-  console.log(serviceData);
-
+  
   const updateCardsPerView = () => {
     const width = window.innerWidth;
     if (width < 656) {
@@ -128,6 +126,7 @@ export const Service = ({ className, onClick }: IServiceData) => {
                       price={s.price}
                       gender={s.gender}
                       onMore={onClick}
+                      onBuy={onBuy}
                     />
                   </motion.li>
                 )

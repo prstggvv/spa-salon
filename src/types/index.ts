@@ -15,3 +15,13 @@ export interface IServiceProps {
   price: string;
   gender: 'men' | 'women' | 'unisex';
 }
+
+export interface ICardProps {
+  className?: string;
+  title: string;
+  image: string;
+  price: string;
+  onMore?: () => void;
+  gender?: string;
+  onBuy?: (title: string) => void;
+}

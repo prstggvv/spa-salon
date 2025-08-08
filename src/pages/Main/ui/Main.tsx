@@ -11,6 +11,7 @@ import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
 import { useState } from "react";
+import type { ContactFormState } from "../../../types";
 
 interface MainProps {
   className?: string;
@@ -18,9 +19,15 @@ interface MainProps {
 
 const Main = ({ className }: MainProps) => {
   const [isPopup, setIsPopup] = useState<boolean>(false);
-  const [formData, setFormData] = useState({
-    selectedServics: [],
+  const [formData, setFormData] = useState<ContactFormState>({
+    name: '',
+    phone: '',
+    hasPromoCode: false,
+    promoCode: '',
+    selectedServices: [],
   });
+
+  console.log(formData.hasPromoCode);
 
   const handleOpenPopup = () => {
     setIsPopup(true);
@@ -30,15 +37,15 @@ const Main = ({ className }: MainProps) => {
     setIsPopup(false);
   }
 
-  const handleAddService = ( title: string ) => {
+  const handleAddService = (title: string) => {
     setFormData((prev) => {
-      if (prev.selectedServics.includes(title)) {
+      if (prev.selectedServices.includes(title)) {
         return prev;
       }
-
+  
       return {
         ...prev,
-        selectedServics: [...prev.selectedServics, title],
+        selectedServices: [...prev.selectedServices, title],
       };
     });
   };
@@ -57,8 +64,12 @@ const Main = ({ className }: MainProps) => {
       <Reviews />
       <Service 
         onClick={handleOpenPopup}
+        onBuy={handleAddService}
       />
-      <ContactForm />
+      <ContactForm
+        formData={formData}
+        setFormData={setFormData}
+      />
       <Footer />
     </div>
   )
