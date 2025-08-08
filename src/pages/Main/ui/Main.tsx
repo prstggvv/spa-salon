@@ -18,6 +18,9 @@ interface MainProps {
 
 const Main = ({ className }: MainProps) => {
   const [isPopup, setIsPopup] = useState<boolean>(false);
+  const [formData, setFormData] = useState({
+    selectedServics: [],
+  });
 
   const handleOpenPopup = () => {
     setIsPopup(true);
@@ -26,6 +29,19 @@ const Main = ({ className }: MainProps) => {
   const handleClosePopup = () => {
     setIsPopup(false);
   }
+
+  const handleAddService = ( title: string ) => {
+    setFormData((prev) => {
+      if (prev.selectedServics.includes(title)) {
+        return prev;
+      }
+
+      return {
+        ...prev,
+        selectedServics: [...prev.selectedServics, title],
+      };
+    });
+  };
 
   return (
     <div className={classNames(cls.main, {}, [className ?? ''])}>

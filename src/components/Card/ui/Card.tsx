@@ -9,6 +9,7 @@ interface ICardData {
   price: string;
   onMore?: () => void;
   gender?: string;
+  onBuy?: (title: string) => void;
 }
 
 export const Card = ({
@@ -18,9 +19,14 @@ export const Card = ({
   price,
   onMore,
   gender,
+  onBuy,
 }: ICardData) => {
   const handleCardClick = () => {
-    onMore();
+    onMore?.();
+  }
+
+  const handleCardBuy = () => {
+    onBuy?.(title);
   }
 
   const getGenderIcon = (gender?: string) => {
@@ -100,6 +106,7 @@ export const Card = ({
         </button>
         <button
           className={classNames(cls.button, {}, [cls.buttonRight])}
+          onClick={handleCardBuy}
         >
           Купить
         </button>

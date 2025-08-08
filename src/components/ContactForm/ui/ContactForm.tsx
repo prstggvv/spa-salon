@@ -4,18 +4,11 @@ import { useState } from 'react';
 import type { ChangeEvent } from 'react';
 import Button from '../../../shared/ui/Button/Button';
 import { motion } from 'framer-motion';
+import type { ContactFormState } from '../../../types';
 
 interface IContactForm {
   className?: string;
 }
-
-type ContactFormState = {
-  name: string;
-  phone: string;
-  hasPromoCode: boolean;
-  promoCode: string;
-  selectedServices: string[];
-};
 
 export const ContactForm = ({ className }: IContactForm) => {
   const [formData, setFormData] = useState<ContactFormState>({
@@ -50,8 +43,6 @@ export const ContactForm = ({ className }: IContactForm) => {
 
   const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    
-    // Если пользователь пытается стереть +7, не даем ему это сделать
     if (!inputValue.startsWith('+7')) {
       return;
     }
