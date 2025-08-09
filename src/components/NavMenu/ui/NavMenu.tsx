@@ -2,21 +2,12 @@ import cls from './NavMenu.module.css';
 import { classNames } from "../../../shared/lib/classNames/classNames";
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks } from '../model/navData';
+import { listVariants } from '../../../shared/lib/constants';
 
 interface INavMenuData {
   open: boolean;
   onClose: () => void;
 }
-
-const listVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.13,
-      delayChildren: 0.43,
-    },
-  },
-};
 
 const itemVariants = {
   hidden: { 

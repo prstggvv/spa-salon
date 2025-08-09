@@ -2,7 +2,6 @@ import cls from './Service.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { serviceData } from '../model/serviceData';
 import { Card } from '../../Card';
-
 import StrelkaImage from '../../../shared/assets/images/icons/Strelka.svg';
 import { useEffect, useState } from 'react';
 import Titles from '../../../shared/ui/Titles/Titles';

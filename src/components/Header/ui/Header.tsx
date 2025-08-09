@@ -6,45 +6,11 @@ import { navLinks } from '../../NavMenu/model/navData';
 import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
 import { motion } from 'framer-motion';
 import LogoSvg from '../../../shared/assets/images/icons/logo_main.svg';
+import { fadeIn, staggerChildren, navItem, } from '../../../shared/lib/constants';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        duration: 0.6, 
-      } 
-    },
-  };
-
-  const staggerChildren = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const navItem = {
-    hidden: { 
-      opacity: 0,
-      y: -20 
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { 
-        duration: 0.3,
-      }
-    },
-  };
 
   const handleBurgerClick = useCallback(() => {
     setMenuOpen((prev) => !prev);

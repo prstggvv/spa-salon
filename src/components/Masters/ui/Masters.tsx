@@ -4,34 +4,13 @@ import Titles from '../../../shared/ui/Titles/Titles';
 import Button from '../../../shared/ui/Button/Button';
 import { motion } from 'framer-motion';
 import { masterData } from '../model/masterData';
+import { containerVariants, masterVariants, } from '../../../shared/lib/constants';
 
 interface IMastersData {
   className?: string;
 }
 
 export const Masters = ({ className }: IMastersData) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.4,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const masterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  }
-
   return (
     <section className={classNames(cls.section, {}, [className ?? ''])}>
       <div className={classNames(cls.container, {}, [])}>

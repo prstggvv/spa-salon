@@ -1,16 +1,7 @@
 import cls from './Card.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { User, Users } from 'lucide-react';
-
-interface ICardData {
-  className?: string;
-  title: string;
-  image: string;
-  price: string;
-  onMore?: () => void;
-  gender?: string;
-  onBuy?: (title: string) => void;
-}
+import type { ICardProps } from '../../../types';
 
 export const Card = ({
   className,
@@ -20,7 +11,7 @@ export const Card = ({
   onMore,
   gender,
   onBuy,
-}: ICardData) => {
+}: ICardProps) => {
   const handleCardClick = () => {
     onMore?.();
   }
