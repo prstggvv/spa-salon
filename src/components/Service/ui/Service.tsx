@@ -6,14 +6,21 @@ import StrelkaImage from '../../../shared/assets/images/icons/Strelka.svg';
 import { useEffect, useState } from 'react';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
+import type { RefObject } from 'react';
 
 interface IServiceData {
   className?: string;
   onClick: () => void;
   onBuy: (title: string) => void;
+  refer: RefObject<HTMLElement | null>;
 }
 
-export const Service = ({ className, onClick, onBuy, }: IServiceData) => {
+export const Service = ({ 
+  className,
+  onClick,
+  onBuy,
+  refer,
+}: IServiceData) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cards, setCards] = useState(3);
   
@@ -70,7 +77,11 @@ export const Service = ({ className, onClick, onBuy, }: IServiceData) => {
   };
 
   return (
-    <section className={classNames(cls.section, {}, [className || ''])}>
+    <section
+      className={classNames(cls.section, {}, [className || ''])}
+      id='#service'
+      ref={refer}
+    >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
           dark={false}

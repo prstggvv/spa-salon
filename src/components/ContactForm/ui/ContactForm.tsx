@@ -1,7 +1,7 @@
 import cls from './ContactForm.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import React from 'react';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, RefObject } from 'react';
 import Button from '../../../shared/ui/Button/Button';
 import { motion } from 'framer-motion';
 import type { ContactFormState } from '../../../types';
@@ -12,6 +12,7 @@ interface IContactForm {
   formData: ContactFormState;
   setFormData: React.Dispatch<React.SetStateAction<ContactFormState>>;
   handleSumbit: (e: React.FormEvent) => void;
+  refer: RefObject<HTMLElement | null>;
 }
 
 export const ContactForm = ({
@@ -19,6 +20,7 @@ export const ContactForm = ({
   formData,
   setFormData,
   handleSumbit,
+  refer,
 }: IContactForm) => {
   const { values, handleChange, handlePhoneChange } = useForm(formData, setFormData)
 
@@ -30,7 +32,11 @@ export const ContactForm = ({
   };
 
   return (
-    <section className={classNames(cls.section, {}, [className || ''])}>
+    <section
+      className={classNames(cls.section, {}, [className || ''])}
+      id='#contact'
+      ref={refer}  
+    >
       <div className={classNames(cls.container, {}, [])}>
         <motion.form
           className={classNames(cls.form, {}, [])}

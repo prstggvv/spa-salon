@@ -5,8 +5,10 @@ import { navLinks } from '../model/navData';
 import { listVariants } from '../../../shared/lib/constants';
 
 interface INavMenuData {
+  className?: string;
   open: boolean;
   onClose: () => void;
+  scrollPage: (id: string) => void;
 }
 
 const itemVariants = {
@@ -22,7 +24,11 @@ const itemVariants = {
   },
 };
 
-export const NavMenu = ({ open, onClose }: INavMenuData) => (
+export const NavMenu = ({ 
+  open,
+  onClose,
+  scrollPage,
+}: INavMenuData) => (
   <AnimatePresence>
     {open && (
       <motion.nav
@@ -46,7 +52,12 @@ export const NavMenu = ({ open, onClose }: INavMenuData) => (
               href={link.href}
               tabIndex={0}
               aria-label={link.label}
-              onClick={onClose}
+              onClick={(e: any) => {
+                e.preventDefault();
+                
+                onClose();
+                scrollPage(link.href)
+              }}
               variants={itemVariants}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}

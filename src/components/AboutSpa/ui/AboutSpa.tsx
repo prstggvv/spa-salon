@@ -3,14 +3,18 @@ import { classNames } from '../../../shared/lib/classNames/classNames';
 import Button from '../../../shared/ui/Button/Button';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
+import { type RefObject } from 'react';
 
 interface AboutSpaProps {
   className?: string;
+  refer: RefObject<HTMLElement | null>;
 }
-export const AboutSpa = ({ className }: AboutSpaProps) => {
+export const AboutSpa = ({ className, refer, }: AboutSpaProps) => {
   return (
     <section
       className={classNames(cls.section, {}, [className || ''])}
+      id='#about'
+      ref={refer}
     >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
@@ -39,4 +43,4 @@ export const AboutSpa = ({ className }: AboutSpaProps) => {
       </div>
     </section>
   )
-}
+};

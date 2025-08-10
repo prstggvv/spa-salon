@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { reviewsData } from '../model/reviewsData';
 import { itemVariants } from '../../../shared/lib/constants';
+import type { RefObject } from 'react';
 
 const Stars = () => (
   <div
@@ -24,9 +25,21 @@ const Stars = () => (
   </div>
 );
 
-export const Reviews = () => {
+interface IReviewsData {
+  className?: string;
+  refer: RefObject<HTMLElement | null>;
+}
+
+export const Reviews = ({
+  className,
+  refer,
+}: IReviewsData) => {
   return (
-    <section className={classNames(cls.section, {}, [])}>
+    <section
+      className={classNames(cls.section, {}, [className ?? ''])}
+      ref={refer}
+      id='#reviews'
+    >
       <div className={classNames(cls.container, {}, [])}>
         <div className={classNames(cls.mainInfo, {}, [])}>
           <Titles

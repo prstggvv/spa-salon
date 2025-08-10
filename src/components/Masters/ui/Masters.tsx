@@ -5,14 +5,20 @@ import Button from '../../../shared/ui/Button/Button';
 import { motion } from 'framer-motion';
 import { masterData } from '../model/masterData';
 import { containerVariants, masterVariants, } from '../../../shared/lib/constants';
+import type { RefObject } from 'react';
 
 interface IMastersData {
   className?: string;
+  refer: RefObject<HTMLElement | null>;
 }
 
-export const Masters = ({ className }: IMastersData) => {
+export const Masters = ({ className, refer }: IMastersData) => {
   return (
-    <section className={classNames(cls.section, {}, [className ?? ''])}>
+    <section
+      className={classNames(cls.section, {}, [className ?? ''])}
+      ref={refer}
+      id='#team'
+    >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
           dark={false}

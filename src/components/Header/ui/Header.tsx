@@ -8,7 +8,14 @@ import { motion } from 'framer-motion';
 import LogoSvg from '../../../shared/assets/images/icons/logo_main.svg';
 import { fadeIn, staggerChildren, navItem, } from '../../../shared/lib/constants';
 
-export const Header = () => {
+interface IHeaderData {
+  className?: string;
+  scrollPage: (id: string) => void;
+}
+export const Header = ({
+  className,
+  scrollPage,
+}: IHeaderData) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -38,9 +45,9 @@ export const Header = () => {
   return (
     <motion.header
       initial='hidden'
-      animate="visible"
+      animate='visible'
       variants={fadeIn}
-      className={classNames(cls.header, { [cls.scrolled]: scrolled })}
+      className={classNames(cls.header, { [cls.scrolled]: scrolled }, [className ?? ''])}
     >
       <div className={classNames(cls.container)}>
         <img
@@ -65,6 +72,11 @@ export const Header = () => {
               variants={navItem}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
+              onClick={(e: any) => {
+                e.preventDefault();
+
+                scrollPage(link.href)
+              }}
             >
               {link.label}
             </motion.a>
@@ -77,6 +89,7 @@ export const Header = () => {
           handleKeyDown={handleKeyDown}
         />
         <NavMenu 
+          scrollPage={scrollPage}
           open={menuOpen}
           onClose={handleNavLinkClick}
         />
