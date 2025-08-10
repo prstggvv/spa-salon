@@ -10,8 +10,10 @@ import { Masters } from "../../../components/Masters";
 import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import type { ContactFormState } from "../../../types";
+import { BOT_ID, BOT_TOKEN, } from "../../../shared/lib/constants";
+import { TelegramApi } from "../../../shared/lib/api/TelegramApi";
 
 interface MainProps {
   className?: string;
@@ -27,7 +29,7 @@ const Main = ({ className }: MainProps) => {
     selectedServices: [],
   });
 
-  console.log(formData.hasPromoCode);
+  const telegramApi = new TelegramApi(BOT_TOKEN, BOT_ID);
 
   const handleOpenPopup = () => {
     setIsPopup(true);
@@ -50,6 +52,33 @@ const Main = ({ className }: MainProps) => {
     });
   };
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    const { name, phone, hasPromoCode, promoCode, selectedServices, } = formData;
+    const message = 
+      `
+        Имя: ${name}\n
+        Номер телефона: ${phone}\n
+        Выбранные услуги: ${selectedServices}\n
+        ${hasPromoCode && promoCode ? `Промокод: ${promoCode}\n` : ''}
+      `
+      try {
+        telegramApi.sendMessage(message);
+        alert('Заявка прошла успешно');
+        setFormData({
+          name: '',
+          phone: '',
+          hasPromoCode: false,
+          promoCode: '',
+          selectedServices: [],
+        });    
+      } catch(e) {
+        console.log(e);
+      }
+
+  }
+
   return (
     <div className={classNames(cls.main, {}, [className ?? ''])}>
       <Popup 
@@ -69,6 +98,7 @@ const Main = ({ className }: MainProps) => {
       <ContactForm
         formData={formData}
         setFormData={setFormData}
+        handleSumbit={handleSubmit}
       />
       <Footer />
     </div>

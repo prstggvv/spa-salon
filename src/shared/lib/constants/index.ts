@@ -1,3 +1,6 @@
+export const BOT_ID = import.meta.env.VITE_BOT_ID;
+export const BOT_TOKEN = import.meta.env.VITE_BOT_URL;
+
 export const itemVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.9 },
   visible: {

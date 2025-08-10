@@ -1,5 +1,4 @@
 import type { ChangeEvent } from 'react';
-import { useState } from 'react';
 import type { ContactFormState } from '../../../types';
 
 const formatPhoneNumber = (numbers: string): string => {

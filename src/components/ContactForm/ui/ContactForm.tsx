@@ -11,12 +11,14 @@ interface IContactForm {
   className?: string;
   formData: ContactFormState;
   setFormData: React.Dispatch<React.SetStateAction<ContactFormState>>;
+  handleSumbit: (e: React.FormEvent) => void;
 }
 
 export const ContactForm = ({
   className,
   formData,
   setFormData,
+  handleSumbit,
 }: IContactForm) => {
   const { values, handleChange, handlePhoneChange } = useForm(formData, setFormData)
 
@@ -36,6 +38,7 @@ export const ContactForm = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          onSubmit={handleSumbit}
         >
           <motion.h2
             className={classNames(cls.heading, {}, [])}
