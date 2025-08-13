@@ -14,6 +14,7 @@ import { useState, type RefObject, useRef, type FormEvent } from "react";
 import type { ContactFormState } from "../../../types";
 import { BOT_ID, BOT_TOKEN, } from "../../../shared/lib/constants";
 import { TelegramApi } from "../../../shared/lib/api/TelegramApi";
+import { Notification } from "../../../components/Notification";
 
 interface MainProps {
   className?: string;
@@ -28,6 +29,7 @@ const Main = ({ className }: MainProps) => {
     promoCode: '',
     selectedServices: [],
   });
+
   const scrollToAboutPage = useRef<HTMLElement | null>(null);
   const scrollToTeamPage = useRef<HTMLElement | null>(null);
   const scrollToReviewsPage = useRef<HTMLElement | null>(null);
@@ -35,6 +37,12 @@ const Main = ({ className }: MainProps) => {
   const scrollToContactPage = useRef<HTMLElement | null>(null);
 
   const telegramApi = new TelegramApi(BOT_TOKEN, BOT_ID);
+
+  const currentDate = new Date().toLocaleDateString('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 
   const handleScrollPage = (id: string) => {
     const refMap: { [key: string]: RefObject<HTMLElement | null> } = {
@@ -74,11 +82,16 @@ const Main = ({ className }: MainProps) => {
     e.preventDefault();
 
     const { name, phone, hasPromoCode, promoCode, selectedServices, } = formData;
-    const message =
-      ` Имя: ${name}\n
-        Номер телефона: ${phone}\n
-        Выбранные услуги: ${selectedServices}\n
-        ${hasPromoCode && promoCode ? `Промокод: ${promoCode}\n` : ''}`
+    const message = `
+      📅 *Дата заявки:* ${currentDate}
+      ━━━━━━━━━━━━━━━━━━  
+      **👤 Имя:** ${name}  
+      **📞 Телефон:** ${phone}  
+      **💼 Услуги:** ${selectedServices}  
+      ${hasPromoCode && promoCode ? `**🎟 Промокод:** ${promoCode}\n` : ''}  
+      ━━━━━━━━━━━━━━━━━━
+    `;
+
     try {
       telegramApi.sendMessage(message);
       alert('Заявка прошла успешно');
@@ -100,7 +113,7 @@ const Main = ({ className }: MainProps) => {
         isOpen={isPopup}
         onClose={handleClosePopup}
       />
-      <Header 
+      <Header
         scrollPage={handleScrollPage}
       />
       <Hero />
@@ -111,7 +124,7 @@ const Main = ({ className }: MainProps) => {
         refer={scrollToTeamPage}
       />
       <Advantages />
-      <Reviews 
+      <Reviews
         refer={scrollToReviewsPage}
       />
       <Service
