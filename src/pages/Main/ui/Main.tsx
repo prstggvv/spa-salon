@@ -22,6 +22,8 @@ interface MainProps {
 
 const Main = ({ className }: MainProps) => {
   const [isPopup, setIsPopup] = useState<boolean>(false);
+  const [isNotification, setIsNotification] = useState<boolean>(false);
+  const [typeNotification, setTypeNotification] = useState<'succes' | 'error'>('succes');
   const [formData, setFormData] = useState<ContactFormState>({
     name: '',
     phone: '',
@@ -94,7 +96,9 @@ const Main = ({ className }: MainProps) => {
 
     try {
       telegramApi.sendMessage(message);
-      alert('Заявка прошла успешно');
+
+      setTypeNotification('succes');
+      setIsNotification(true);
       setFormData({
         name: '',
         phone: '',
@@ -103,12 +107,19 @@ const Main = ({ className }: MainProps) => {
         selectedServices: [],
       });
     } catch (e) {
+      setTypeNotification('error');
+      setIsNotification(true);
       console.log(e);
     }
   };
 
   return (
     <div className={classNames(cls.main, {}, [className ?? ''])}>
+      <Notification
+        type={typeNotification}
+        isOpen={isNotification}
+        onClose={() => setIsNotification(false)}
+      />
       <Popup
         isOpen={isPopup}
         onClose={handleClosePopup}

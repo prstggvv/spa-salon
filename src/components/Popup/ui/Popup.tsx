@@ -26,56 +26,58 @@ export const Popup = ({
             className={classNames(cls.closeIcon, {}, [])}
           />
         </button>
-        <div className={classNames(cls.imageWrapper, {}, [])}>
-          <img
-            className={classNames(cls.image, {}, [])}
-            src={ImageWW}
-            alt='#'
-          />
-        </div>
-        <div className={classNames(cls.content, {}, [])}>
-          <div className={classNames(cls.gap, {}, [])}>
-            <h2 className={classNames(cls.title, {}, [])}>
-              Массаж
-            </h2>
-            <ul className={classNames(cls.block, {}, [])}>
-              <li className={classNames(cls.card, {}, [])}>
-                <Clock
-                  className={classNames(cls.icon, {}, [])}
-                />
-                <p className={classNames(cls.text, {}, [])}>
-                  60 минут
-                </p>
-              </li>
-              <li className={classNames(cls.card, {}, [])}>
-                <UserPlus
-                  className={classNames(cls.icon, {}, [])}
-                />
-                <p className={classNames(cls.text, {}, [])}>
-                  Игорь Зудин
-                </p>
-              </li>
-              <li className={classNames(cls.card, {}, [])}>
-                <User
-                  className={classNames(cls.icon, {}, [])}
-                />
-                <p className={classNames(cls.text, {}, [])}>
-                  Для мужчин
-                </p>
-              </li>
-            </ul>
-            <p className={classNames(cls.price, {}, [])}>2700 руб.</p>
-            <p className={classNames(cls.description, {}, [])}>
-              Pamper yourself with our deluxe manicure service.
-              Includes nail shaping, cuticle care, hand massage,
-              and your choice of polish or nail art design.
-            </p>
+        <div className={classNames(cls.scrollable, {}, [])}>
+          <div className={classNames(cls.imageWrapper, {}, [])}>
+            <img
+              className={classNames(cls.image, {}, [])}
+              src={ImageWW}
+              alt='#'
+            />
           </div>
-          <Button
-            type='button'
-            children='Купить'
-            className={classNames(cls.button, {}, [])}
-          />
+          <div className={classNames(cls.content, {}, [])}>
+            <div className={classNames(cls.gap, {}, [])}>
+              <h2 className={classNames(cls.title, {}, [])}>
+                Массаж
+              </h2>
+              <ul className={classNames(cls.block, {}, [])}>
+                <li className={classNames(cls.card, {}, [])}>
+                  <Clock
+                    className={classNames(cls.icon, {}, [])}
+                  />
+                  <p className={classNames(cls.text, {}, [])}>
+                    60 минут
+                  </p>
+                </li>
+                <li className={classNames(cls.card, {}, [])}>
+                  <UserPlus
+                    className={classNames(cls.icon, {}, [])}
+                  />
+                  <p className={classNames(cls.text, {}, [])}>
+                    Игорь Зудин
+                  </p>
+                </li>
+                <li className={classNames(cls.card, {}, [])}>
+                  <User
+                    className={classNames(cls.icon, {}, [])}
+                  />
+                  <p className={classNames(cls.text, {}, [])}>
+                    Для мужчин
+                  </p>
+                </li>
+              </ul>
+              <p className={classNames(cls.price, {}, [])}>2700 руб.</p>
+              <p className={classNames(cls.description, {}, [])}>
+                Pamper yourself with our deluxe manicure service.
+                Includes nail shaping, cuticle care, hand massage,
+                and your choice of polish or nail art design.
+              </p>
+            </div>
+            <Button
+              type='button'
+              children='Купить'
+              className={classNames(cls.button, {}, [])}
+            />
+          </div>
         </div>
       </div>
     </div>
