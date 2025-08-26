@@ -11,10 +11,12 @@ import { fadeIn, staggerChildren, navItem, } from '../../../shared/lib/constants
 interface IHeaderData {
   className?: string;
   scrollPage: (id: string) => void;
+  activeSection?: string;
 }
 export const Header = ({
   className,
   scrollPage,
+  activeSection,
 }: IHeaderData) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -65,7 +67,11 @@ export const Header = ({
           {navLinks.map((link) => (
             <motion.a
               key={link.label}
-              className={classNames(cls.link, { [cls.scrolled]: scrolled }, [])}
+              className={classNames(cls.link, 
+                { 
+                  [cls.scrolled]: scrolled,
+                  [cls.active]: activeSection === link.href
+                }, [])}
               href={link.href}
               tabIndex={0}
               aria-label={link.label}

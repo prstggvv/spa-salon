@@ -50,6 +50,14 @@
   transition: all .3s ease;
 }
 
+.link:hover {
+  color: #fecfaa;
+}
+
+.link.active {
+  color: #fecfaa;
+}
+
 .photo {
   color: #fff;
   font-weight: bold;

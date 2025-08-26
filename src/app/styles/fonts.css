@@ -1,7 +1,18 @@
+/* 61Fefere,,>> */
+
 @font-face {
   font-family: 'Sf-pro-light';
   src: url('../../shared/assets/fonts/SF-Pro-Display-Light.woff') format('woff'),
        url('../../shared/assets/fonts/SF-Pro-Display-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yu-Gothic-light';
+  src: url('../../shared/assets/fonts/yu-gothic-ui-light.woff') format('woff'),
+       url('../../shared/assets/fonts/yu-gothic-ui-light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -21,6 +32,15 @@
   src: url('../../shared/assets/fonts/OpenSans_Condensed-SemiBold.woff') format('woff'),
        url('../../shared/assets/fonts/OpenSans_Condensed-SemiBold.woff2') format('woff2');
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CeraPro-medium';
+  src: url('../../shared/assets/fonts/CeraPro-Medium.woff') format('woff'),
+       url('../../shared/assets/fonts/CeraPro-Medium.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }

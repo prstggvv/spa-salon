@@ -2,8 +2,10 @@
 
 :root {
   --font-sf-pro-light: 'Sf-pro-light', sans-serif, serif;
+  --font-yu-gothic-light: 'Yu-Gothic-light', sans-serif, serif;
   --font-roboto-regular: 'Roboto-regular', sans-serif, serif;
-  --font-open-sans-semibold: 'OpenSans-semibold', sans-serif, serif;
+  --font-open-sans-semibold: 'CeraPro-medium', sans-serif, serif;
+  --font-cera-pro-medium: 'CeraPro-medium', sans-serif, serif;
   --error-color: #862308;
   --bg-premium: #e8ded3;
   --bg-prime: rgb(180, 145, 110);
@@ -15,3 +17,6 @@
   --color-premium: rgb(36, 33, 33);
   --color-text: #5c5a4c;
 }
+
+/* OpenSans-semibold 
+*/

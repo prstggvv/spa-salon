@@ -21,6 +21,6 @@ export const navLinks: INavLinkData[] = [
   },
   { 
     label: 'Контакты',
-    href: '#contacts',
+    href: '#contact',
   },
 ];

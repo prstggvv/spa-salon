@@ -10,7 +10,7 @@ import { Masters } from "../../../components/Masters";
 import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
-import { useState, type RefObject, useRef, type FormEvent } from "react";
+import { useState, type RefObject, useRef, type FormEvent, useEffect, act } from "react";
 import type { ContactFormState } from "../../../types";
 import { BOT_ID, BOT_TOKEN, } from "../../../shared/lib/constants";
 import { TelegramApi } from "../../../shared/lib/api/TelegramApi";
@@ -24,6 +24,8 @@ const Main = ({ className }: MainProps) => {
   const [isPopup, setIsPopup] = useState<boolean>(false);
   const [isNotification, setIsNotification] = useState<boolean>(false);
   const [typeNotification, setTypeNotification] = useState<'succes' | 'error'>('succes');
+  const [activeSection, setActiveSection] = useState<string>('');
+
   const [formData, setFormData] = useState<ContactFormState>({
     name: '',
     phone: '',
@@ -46,6 +48,42 @@ const Main = ({ className }: MainProps) => {
     year: 'numeric',
   });
 
+  console.log(activeSection);
+
+  useEffect(() => {
+    const sections: { id: string; ref: RefObject<HTMLElement | null> }[] = [
+      { id: '#about', ref: scrollToAboutPage },
+      { id: '#team', ref: scrollToTeamPage },
+      { id: '#reviews', ref: scrollToReviewsPage },
+      { id: '#service', ref: scrollToServicePage },
+      { id: '#contact', ref: scrollToContactPage },
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (id) setActiveSection(id);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // срабатывает, когда секция видна наполовину
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section.ref.current) observer.observe(section.ref.current);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section.ref.current) observer.unobserve(section.ref.current);
+      });
+    };
+  }, [])
+
   const handleScrollPage = (id: string) => {
     const refMap: { [key: string]: RefObject<HTMLElement | null> } = {
       '#about': scrollToAboutPage,
@@ -57,6 +95,7 @@ const Main = ({ className }: MainProps) => {
 
     const elementRef = refMap[id];
     elementRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    console.log(elementRef);
   };
 
   const handleOpenPopup = () => {
@@ -125,6 +164,7 @@ const Main = ({ className }: MainProps) => {
         onClose={handleClosePopup}
       />
       <Header
+        activeSection={activeSection}
         scrollPage={handleScrollPage}
       />
       <Hero />
