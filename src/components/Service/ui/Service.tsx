@@ -52,25 +52,15 @@ export const Service = ({
   }, [cards, serviceData.length, currentIndex]);
 
   const max = Math.max(0, serviceData.length - cards);
-  const total = Math.ceil(serviceData.length / cards);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => Math.min(prev + 1, max));
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => Math.min(prev - 1, 0));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }
 
-  const goToSlide = (dotIndex: number) => {
-    const newIndex = Math.min(dotIndex * cards, max)
-    setCurrentIndex(newIndex);
-  }
-
-  const getCurrentDotIndex = () => {
-    return Math.floor(currentIndex / cards)
-  }
-  
   const style = {
     flex: `0 0 calc(${100 / cards}% - 20px)`,
     maxWidth: `calc(${100 / cards}% - 20px)`,
@@ -161,23 +151,6 @@ export const Service = ({
             />
           </motion.button>
         </div>
-        {total > 1 && (
-          <div className={classNames(cls.dots, {}, [])}>
-            {Array.from({ length: total - 1 }).map((_, i) => (
-              <motion.button
-                key={i}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => goToSlide(i)}
-                className={classNames(cls.dot,
-                  {
-                    [cls.dotActive]: getCurrentDotIndex() === i
-                  }, [])}
-              >
-              </motion.button>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   )
