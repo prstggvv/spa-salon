@@ -8,8 +8,13 @@ import { type RefObject } from 'react';
 interface AboutSpaProps {
   className?: string;
   refer: RefObject<HTMLElement | null>;
+  onScroll?: () => void;
 }
-export const AboutSpa = ({ className, refer, }: AboutSpaProps) => {
+export const AboutSpa = ({ 
+  className,
+  refer,
+  onScroll,
+}: AboutSpaProps) => {
   return (
     <section
       className={classNames(cls.section, {}, [className || ''])}
@@ -37,6 +42,7 @@ export const AboutSpa = ({ className, refer, }: AboutSpaProps) => {
         </motion.p>
         <Button
           children='Подробнее'
+          onClick={onScroll}
           type='button'
           className={classNames(cls.button, {}, [])}
         />

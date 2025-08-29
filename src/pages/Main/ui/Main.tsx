@@ -48,7 +48,6 @@ const Main = ({ className }: MainProps) => {
     year: 'numeric',
   });
 
-  console.log(activeSection);
 
   useEffect(() => {
     const sections: { id: string; ref: RefObject<HTMLElement | null> }[] = [
@@ -58,6 +57,8 @@ const Main = ({ className }: MainProps) => {
       { id: '#service', ref: scrollToServicePage },
       { id: '#contact', ref: scrollToContactPage },
     ];
+
+    console.log('Observing sections:', sections);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -69,7 +70,7 @@ const Main = ({ className }: MainProps) => {
         });
       },
       {
-        threshold: 0.5, // срабатывает, когда секция видна наполовину
+        threshold: 0.1,
       }
     );
 
