@@ -1,18 +1,7 @@
 import FirstImage from '../../../shared/assets/images/cards/first.jpeg';
 import SecondImage from '../../../shared/assets/images/cards/second.jpeg';
 import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
-
-interface IServiceProps {
-  id: number;
-  title: string;
-  text?: string | '';
-  master?: string | '';
-  image: string;
-  price: string;
-  gender: 'men' | 'women' | 'unisex';
-  genderText: 'Для мужчин' | 'Для женщин' | 'Для всех';
-  duration: string;
-}
+import type { IServiceProps } from '../../../types';
 
 export const serviceData: IServiceProps[] = [
   {
