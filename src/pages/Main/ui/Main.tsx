@@ -171,9 +171,11 @@ const Main = ({ className }: MainProps) => {
       <Hero />
       <AboutSpa
         refer={scrollToAboutPage}
+        onScroll={() => handleScrollPage('#service')}
       />
       <Masters
         refer={scrollToTeamPage}
+        onScroll={() => handleScrollPage('#service')}
       />
       <Advantages />
       <Reviews

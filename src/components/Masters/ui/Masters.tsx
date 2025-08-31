@@ -10,9 +10,10 @@ import type { RefObject } from 'react';
 interface IMastersData {
   className?: string;
   refer: RefObject<HTMLElement | null>;
+  onScroll?: () => void;
 }
 
-export const Masters = ({ className, refer }: IMastersData) => {
+export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
   return (
     <section
       className={classNames(cls.section, {}, [className ?? ''])}
@@ -129,6 +130,7 @@ export const Masters = ({ className, refer }: IMastersData) => {
                   <Button
                     type='button'
                     className={classNames(cls.button, {}, [])}
+                    onClick={onScroll}
                     children='Подробнее'
                   />
                 </motion.div>
