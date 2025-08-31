@@ -7,10 +7,11 @@ import { useEffect, useState } from 'react';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
 import type { RefObject } from 'react';
+import type { IServiceProps } from '../../../types';
 
 interface IServiceData {
   className?: string;
-  onClick: () => void;
+  onClick: (service: IServiceProps) => void;
   onBuy: (title: string) => void;
   refer: RefObject<HTMLElement | null>;
 }
@@ -125,7 +126,7 @@ export const Service = ({
                       image={s.image}
                       price={s.price}
                       gender={s.gender}
-                      onMore={onClick}
+                      onMore={() => onClick(s)}
                       onBuy={onBuy}
                     />
                   </motion.li>

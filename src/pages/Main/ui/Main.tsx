@@ -10,11 +10,13 @@ import { Masters } from "../../../components/Masters";
 import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
-import { useState, type RefObject, useRef, type FormEvent, useEffect, act } from "react";
+import { useState, type RefObject, useRef, type FormEvent, useEffect } from "react";
 import type { ContactFormState } from "../../../types";
 import { BOT_ID, BOT_TOKEN, } from "../../../shared/lib/constants";
 import { TelegramApi } from "../../../shared/lib/api/TelegramApi";
 import { Notification } from "../../../components/Notification";
+import type { IServiceProps } from "../../../types";
+import { AnimatePresence } from "framer-motion";
 
 interface MainProps {
   className?: string;
@@ -25,6 +27,7 @@ const Main = ({ className }: MainProps) => {
   const [isNotification, setIsNotification] = useState<boolean>(false);
   const [typeNotification, setTypeNotification] = useState<'succes' | 'error'>('succes');
   const [activeSection, setActiveSection] = useState<string>('');
+  const [selectedService, setSelectedService] = useState<IServiceProps | null>(null);
 
   const [formData, setFormData] = useState<ContactFormState>({
     name: '',
@@ -99,12 +102,14 @@ const Main = ({ className }: MainProps) => {
     console.log(elementRef);
   };
 
-  const handleOpenPopup = () => {
+  const handleOpenPopup = (service: IServiceProps) => {
+    setSelectedService(service);
     setIsPopup(true);
   }
 
   const handleClosePopup = () => {
     setIsPopup(false);
+    setSelectedService(null);
   }
 
   const handleAddService = (title: string) => {
@@ -160,10 +165,16 @@ const Main = ({ className }: MainProps) => {
         isOpen={isNotification}
         onClose={() => setIsNotification(false)}
       />
-      <Popup
-        isOpen={isPopup}
-        onClose={handleClosePopup}
-      />
+      <AnimatePresence>
+        {isPopup && (
+          <Popup
+            key="popup"
+            isOpen={isPopup}
+            onClose={handleClosePopup}
+            service={selectedService ?? undefined}
+          />
+        )}
+      </AnimatePresence>
       <Header
         activeSection={activeSection}
         scrollPage={handleScrollPage}
@@ -182,7 +193,7 @@ const Main = ({ className }: MainProps) => {
         refer={scrollToReviewsPage}
       />
       <Service
-        onClick={handleOpenPopup}
+        onClick={(service) => handleOpenPopup(service)}
         onBuy={handleAddService}
         refer={scrollToServicePage}
       />

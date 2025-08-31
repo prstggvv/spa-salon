@@ -4,20 +4,30 @@ import type React from 'react';
 import ImageWW from '../../../shared/assets/images/IMAGE.jpeg';
 import Button from '../../../shared/ui/Button/Button';
 import { X, Clock, UserPlus, User } from 'lucide-react';
+import type { IServiceProps } from '../../../types';
+import { motion } from "framer-motion";
 
 interface IPopupData {
   className?: string;
   isOpen: boolean;
   onClose?: (evt: React.MouseEvent) => void;
+  service?: IServiceProps;
 }
 
 export const Popup = ({
   className,
   isOpen,
   onClose,
+  service,
 }: IPopupData) => {
   return (
-    <div className={classNames(cls.popup, { [cls.open]: isOpen }, [className ?? ''])}>
+    <motion.div
+      className={classNames(cls.popup, { [cls.open]: isOpen }, [className ?? ''])}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className={classNames(cls.container, {}, [])}>
         <button
           onClick={onClose}
@@ -37,7 +47,7 @@ export const Popup = ({
           <div className={classNames(cls.content, {}, [])}>
             <div className={classNames(cls.gap, {}, [])}>
               <h2 className={classNames(cls.title, {}, [])}>
-                Массаж
+                {service?.title}
               </h2>
               <ul className={classNames(cls.block, {}, [])}>
                 <li className={classNames(cls.card, {}, [])}>
@@ -45,7 +55,7 @@ export const Popup = ({
                     className={classNames(cls.icon, {}, [])}
                   />
                   <p className={classNames(cls.text, {}, [])}>
-                    60 минут
+                    {`${service?.duration} минут`}
                   </p>
                 </li>
                 <li className={classNames(cls.card, {}, [])}>
@@ -53,7 +63,7 @@ export const Popup = ({
                     className={classNames(cls.icon, {}, [])}
                   />
                   <p className={classNames(cls.text, {}, [])}>
-                    Игорь Зудин
+                    {service?.master}
                   </p>
                 </li>
                 <li className={classNames(cls.card, {}, [])}>
@@ -61,15 +71,13 @@ export const Popup = ({
                     className={classNames(cls.icon, {}, [])}
                   />
                   <p className={classNames(cls.text, {}, [])}>
-                    Для мужчин
+                    {service?.genderText}
                   </p>
                 </li>
               </ul>
-              <p className={classNames(cls.price, {}, [])}>2700 руб.</p>
+              <p className={classNames(cls.price, {}, [])}>{service?.price} руб.</p>
               <p className={classNames(cls.description, {}, [])}>
-                Pamper yourself with our deluxe manicure service.
-                Includes nail shaping, cuticle care, hand massage,
-                and your choice of polish or nail art design.
+                {service?.text}
               </p>
             </div>
             <Button
@@ -80,6 +88,6 @@ export const Popup = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -21,6 +21,7 @@
 
 .container {
   max-width: 1024px;
+  width: 90%;
   max-height: 90vh;
   margin: 0;
   display: flex;
@@ -67,6 +68,7 @@
 
 .scrollable {
   display: flex;
+  width: 100%;
 }
 
 .gap {
