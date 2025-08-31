@@ -8,6 +8,7 @@ import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
 import type { RefObject } from 'react';
 import type { IServiceProps } from '../../../types';
+import { useSwipeable } from "react-swipeable";
 
 interface IServiceData {
   className?: string;
@@ -62,6 +63,13 @@ export const Service = ({
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
+
   const style = {
     flex: `0 0 calc(${100 / cards}% - 20px)`,
     maxWidth: `calc(${100 / cards}% - 20px)`,
@@ -98,6 +106,7 @@ export const Service = ({
             />
           </motion.button>
           <motion.div
+            {...handlers}
             className={classNames(cls.slider, {}, [])}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
