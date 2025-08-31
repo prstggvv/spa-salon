@@ -12,6 +12,7 @@ interface IPopupData {
   isOpen: boolean;
   onClose?: (evt: React.MouseEvent) => void;
   service?: IServiceProps;
+  onBuy: (title: string) => void;
 }
 
 export const Popup = ({
@@ -19,7 +20,12 @@ export const Popup = ({
   isOpen,
   onClose,
   service,
+  onBuy,
 }: IPopupData) => {
+  const handleCardBuy = () => {
+    onBuy(service?.title ?? '');
+  }
+
   return (
     <motion.div
       className={classNames(cls.popup, { [cls.open]: isOpen }, [className ?? ''])}
@@ -83,6 +89,7 @@ export const Popup = ({
             <Button
               type='button'
               children='Купить'
+              onClick={handleCardBuy}
               className={classNames(cls.button, {}, [])}
             />
           </div>

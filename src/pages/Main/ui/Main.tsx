@@ -168,6 +168,11 @@ const Main = ({ className }: MainProps) => {
       <AnimatePresence>
         {isPopup && (
           <Popup
+            onBuy={(service) => {
+              handleAddService(service);
+              handleClosePopup();
+              handleScrollPage('#contact');
+            }}
             key="popup"
             isOpen={isPopup}
             onClose={handleClosePopup}
@@ -193,8 +198,13 @@ const Main = ({ className }: MainProps) => {
         refer={scrollToReviewsPage}
       />
       <Service
-        onClick={(service) => handleOpenPopup(service)}
-        onBuy={handleAddService}
+        onClick={(service) => {
+          handleOpenPopup(service)
+        }}
+        onBuy={(service) => {
+          handleAddService(service);
+          handleScrollPage('#contact');
+        }}
         refer={scrollToServicePage}
       />
       <ContactForm
