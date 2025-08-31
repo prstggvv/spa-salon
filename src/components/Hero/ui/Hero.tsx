@@ -37,7 +37,7 @@ export const Hero = ({ className }: HeroProps) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={classNames(cls.title, {}, [])}
           >
-            Le Halo Spa
+            Le Halo SPA
           </motion.h1>
           <motion.p
             className={classNames(cls.subtitle, {}, [])}

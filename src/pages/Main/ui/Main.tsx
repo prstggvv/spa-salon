@@ -10,11 +10,13 @@ import { Masters } from "../../../components/Masters";
 import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
-import { useState, type RefObject, useRef, type FormEvent, useEffect, act } from "react";
+import { useState, type RefObject, useRef, type FormEvent, useEffect } from "react";
 import type { ContactFormState } from "../../../types";
 import { BOT_ID, BOT_TOKEN, } from "../../../shared/lib/constants";
 import { TelegramApi } from "../../../shared/lib/api/TelegramApi";
 import { Notification } from "../../../components/Notification";
+import type { IServiceProps } from "../../../types";
+import { AnimatePresence } from "framer-motion";
 
 interface MainProps {
   className?: string;
@@ -25,6 +27,7 @@ const Main = ({ className }: MainProps) => {
   const [isNotification, setIsNotification] = useState<boolean>(false);
   const [typeNotification, setTypeNotification] = useState<'succes' | 'error'>('succes');
   const [activeSection, setActiveSection] = useState<string>('');
+  const [selectedService, setSelectedService] = useState<IServiceProps | null>(null);
 
   const [formData, setFormData] = useState<ContactFormState>({
     name: '',
@@ -48,7 +51,6 @@ const Main = ({ className }: MainProps) => {
     year: 'numeric',
   });
 
-  console.log(activeSection);
 
   useEffect(() => {
     const sections: { id: string; ref: RefObject<HTMLElement | null> }[] = [
@@ -58,6 +60,8 @@ const Main = ({ className }: MainProps) => {
       { id: '#service', ref: scrollToServicePage },
       { id: '#contact', ref: scrollToContactPage },
     ];
+
+    console.log('Observing sections:', sections);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -69,7 +73,7 @@ const Main = ({ className }: MainProps) => {
         });
       },
       {
-        threshold: 0.5, // срабатывает, когда секция видна наполовину
+        threshold: 0.1,
       }
     );
 
@@ -98,12 +102,14 @@ const Main = ({ className }: MainProps) => {
     console.log(elementRef);
   };
 
-  const handleOpenPopup = () => {
+  const handleOpenPopup = (service: IServiceProps) => {
+    setSelectedService(service);
     setIsPopup(true);
   }
 
   const handleClosePopup = () => {
     setIsPopup(false);
+    setSelectedService(null);
   }
 
   const handleAddService = (title: string) => {
@@ -159,10 +165,21 @@ const Main = ({ className }: MainProps) => {
         isOpen={isNotification}
         onClose={() => setIsNotification(false)}
       />
-      <Popup
-        isOpen={isPopup}
-        onClose={handleClosePopup}
-      />
+      <AnimatePresence>
+        {isPopup && (
+          <Popup
+            onBuy={(service) => {
+              handleAddService(service);
+              handleClosePopup();
+              handleScrollPage('#contact')
+            }}
+            key="popup"
+            isOpen={isPopup}
+            onClose={handleClosePopup}
+            service={selectedService ?? undefined}
+          />
+        )}
+      </AnimatePresence>
       <Header
         activeSection={activeSection}
         scrollPage={handleScrollPage}
@@ -170,17 +187,24 @@ const Main = ({ className }: MainProps) => {
       <Hero />
       <AboutSpa
         refer={scrollToAboutPage}
+        onScroll={() => handleScrollPage('#service')}
       />
       <Masters
         refer={scrollToTeamPage}
+        onScroll={() => handleScrollPage('#service')}
       />
       <Advantages />
       <Reviews
         refer={scrollToReviewsPage}
       />
       <Service
-        onClick={handleOpenPopup}
-        onBuy={handleAddService}
+        onClick={(service) => {
+          handleOpenPopup(service)
+        }}
+        onBuy={(service) => {
+          handleAddService(service);
+          handleScrollPage('#contact');
+        }}
         refer={scrollToServicePage}
       />
       <ContactForm

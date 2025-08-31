@@ -14,6 +14,8 @@ export interface IServiceProps {
   image: string;
   price: string;
   gender: 'men' | 'women' | 'unisex';
+  genderText: 'Для мужчин' | 'Для женщин' | 'Для всех';
+  duration: string;
 }
 
 export interface ICardProps {

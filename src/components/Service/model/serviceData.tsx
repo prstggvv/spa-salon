@@ -1,16 +1,7 @@
 import FirstImage from '../../../shared/assets/images/cards/first.jpeg';
 import SecondImage from '../../../shared/assets/images/cards/second.jpeg';
 import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
-
-interface IServiceProps {
-  id: number;
-  title: string;
-  text?: string | '';
-  master?: string | '';
-  image: string;
-  price: string;
-  gender: 'men' | 'women' | 'unisex';
-}
+import type { IServiceProps } from '../../../types';
 
 export const serviceData: IServiceProps[] = [
   {
@@ -19,17 +10,21 @@ export const serviceData: IServiceProps[] = [
     image: FirstImage,
     price: '2800',
     gender: 'men',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для мужчин',
+    duration: '60',
   },
   {
     id: 2,
     title: 'Расслабляющий массаж',
     image: SecondImage,
-    price: '3200',
+    price: '4100',
     gender: 'women',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для женщин',
+    duration: '60',
   },
   {
     id: 3,
@@ -37,8 +32,10 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для всех',
+    duration: '60',
   },
   {
     id: 4,
@@ -46,8 +43,10 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для всех',
+    duration: '60',
   },
   {
     id: 5,
@@ -55,8 +54,10 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для всех',
+    duration: '60',
   },
   {
     id: 6,
@@ -64,8 +65,10 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для всех',
+    duration: '60',
   },
   {
     id: 7,
@@ -73,7 +76,9 @@ export const serviceData: IServiceProps[] = [
     image: ThirdImage,
     price: '3000',
     gender: 'unisex',
-    text: `orkgoerkgkoergoerjgoerjgoerjgoerjgoerjgoerjoerjgoerjg`,
+    text: `Хороший массаж в котором можно купить все при этом есть мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот мемеепк ыакк этот`,
     master: 'Игорь Зудин',
+    genderText: 'Для всех',
+    duration: '60',
   },
 ];
