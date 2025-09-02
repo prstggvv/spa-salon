@@ -77,6 +77,7 @@ export const Footer = ({ className }: IFooterData) => {
               <motion.a
                 className={classNames(cls.link, {}, [])}
                 href='#'
+                variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 key={i}
               >

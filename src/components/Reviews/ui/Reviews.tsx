@@ -5,6 +5,7 @@ import Titles from '../../../shared/ui/Titles/Titles';
 import { reviewsData } from '../model/reviewsData';
 import { itemVariants } from '../../../shared/lib/constants';
 import type { RefObject } from 'react';
+import { YandexReviews } from '../../YandexReviews';
 
 const Stars = () => (
   <div
@@ -47,7 +48,15 @@ export const Reviews = ({
             title='Что говорят наши клиенты'
             dark={true}
           />
-          <motion.ul
+        </div>
+          <YandexReviews />
+      </div>
+    </section>
+  );
+}
+
+/*
+  <motion.ul
             className={classNames(cls.grid, {}, [])}
             initial="hidden"
             whileInView="visible"
@@ -73,14 +82,4 @@ export const Reviews = ({
               )
             })}
           </motion.ul>
-        </div>
-        <a
-          className={classNames(cls.link, {}, [])}
-          href='#'
-        >
-          Посмотреть все отзывы
-        </a>
-      </div>
-    </section>
-  );
-}
+*/

@@ -171,7 +171,7 @@ const Main = ({ className }: MainProps) => {
             onBuy={(service) => {
               handleAddService(service);
               handleClosePopup();
-              handleScrollPage('#contact')
+              handleScrollPage('#contact');
             }}
             key="popup"
             isOpen={isPopup}
