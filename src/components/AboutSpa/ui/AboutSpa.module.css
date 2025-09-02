@@ -17,31 +17,9 @@
   margin: 0 auto;
 }
 
-.titles {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.uptitle {
-  font-family: var(--font-roboto-regular);
-  font-size: 20px;
-  text-align: center;
-  margin: 0;
-  color: var(--bg-prime);
-  line-height: 0.5;
-}
-
-.title {
-  font-family: var(--font-open-sans-semibold);
-  font-size: 42px;
-  margin: 0;
-  line-height: 60px;
-}
-
 .subtitle {
   max-width: 489px;
-  color: #4a4a4a;
+  color: var(--color-black-outline);
   font-size: 16px;
   font-family: var(--font-roboto-regular);
   line-height: 28px;

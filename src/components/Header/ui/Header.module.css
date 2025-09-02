@@ -45,17 +45,17 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 2px;
-  font-family: var(--font-open-sans-semibold);
+  font-family: var(--font-cera-pro-medium);
   position: relative;
   transition: all .3s ease;
 }
 
 .link:hover {
-  color: #fecfaa;
+  color: var( --hover-color-header);
 }
 
 .link.active {
-  color: #fecfaa;
+  color: var(--hover-color-header);
 }
 
 .photo {

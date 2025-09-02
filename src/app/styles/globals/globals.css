@@ -6,16 +6,14 @@
   --font-roboto-regular: 'Roboto-regular', sans-serif, serif;
   --font-open-sans-semibold: 'CeraPro-medium', sans-serif, serif;
   --font-cera-pro-medium: 'CeraPro-medium', sans-serif, serif;
-  --error-color: #862308;
-  --bg-premium: #e8ded3;
   --bg-prime: rgb(180, 145, 110);
-  --bg-secondary: rgb(246, 248, 250);
-  --color-black: #222;
-  --color-black-outline: #4a4a4a;
-  --color-white: #fff;
   --color-secondary: #b77b3b;
-  --color-premium: rgb(36, 33, 33);
+  --bg-premium: #e8ded3;
+  --color-white: #fff;
+  --bg-secondary: rgb(246, 248, 250);
+  --color-black-outline: #4a4a4a;
   --color-text: #5c5a4c;
+  --hover-color-header: #fecfaa;
 }
 
 /* OpenSans-semibold 

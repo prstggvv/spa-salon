@@ -1,5 +1,5 @@
 .section {
-  background: rgb(180, 145, 110);
+  background: var(--bg-prime);
   width: 100%;
   margin: 0;
 }
@@ -48,7 +48,7 @@
 
 .heading {
   font-size: 24px;
-  font-family: var(--font-open-sans-semibold);
+  font-family: var(--font-cera-pro-medium);
   color: var(--color-white);
   margin: 0;
 }
