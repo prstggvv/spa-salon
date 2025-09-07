@@ -115,16 +115,38 @@ export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.7 }}
                     >
-                      <li className={classNames(cls.serviceCard, {}, [])}>
-                        <p className={classNames(cls.job, {}, [])}>
-                          Услуга 1
-                        </p>
-                      </li>
-                      <li className={classNames(cls.serviceCard, {}, [])}>
-                        <p className={classNames(cls.job, {}, [])}>
-                          Услуга 2
-                        </p>
-                      </li>
+                      {i === 0 ? (
+                        <>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-тела
+                            </p>
+                          </li>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-программа для спины
+                            </p>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-головы
+                            </p>
+                          </li>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-головы и лица
+                            </p>
+                          </li>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              Восстанавливающий СПА-уход за волосами
+                            </p>
+                          </li>
+                        </>
+                      )}
                     </motion.ul>
                   </div>
                   <Button

@@ -10,28 +10,10 @@
 }
 
 @font-face {
-  font-family: 'Yu-Gothic-light';
-  src: url('../../shared/assets/fonts/yu-gothic-ui-light.woff') format('woff'),
-       url('../../shared/assets/fonts/yu-gothic-ui-light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Roboto-regular';
   src: url('../../shared/assets/fonts/Roboto_Condensed-Regular.woff') format('woff'),
        url('../../shared/assets/fonts/Roboto_Condensed-Regular.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'OpenSans-semibold';
-  src: url('../../shared/assets/fonts/OpenSans_Condensed-SemiBold.woff') format('woff'),
-       url('../../shared/assets/fonts/OpenSans_Condensed-SemiBold.woff2') format('woff2');
-  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }

@@ -1,7 +1,6 @@
 import { Header } from "../../../components/Header";
 import { classNames } from "../../../shared/lib/classNames/classNames";
 import cls from './Main.module.css';
-import { Reviews } from "../../../components/Reviews";
 import { AboutSpa } from "../../../components/AboutSpa";
 import { Hero } from "../../../components/Hero";
 import { Service } from "../../../components/Service";
@@ -154,6 +153,13 @@ const Main = ({ className }: MainProps) => {
     } catch (e) {
       setTypeNotification('error');
       setIsNotification(true);
+      setFormData({
+        name: '',
+        phone: '',
+        hasPromoCode: false,
+        promoCode: '',
+        selectedServices: [],
+      })
       console.log(e);
     }
   };
@@ -194,9 +200,6 @@ const Main = ({ className }: MainProps) => {
         onScroll={() => handleScrollPage('#service')}
       />
       <Advantages />
-      <Reviews
-        refer={scrollToReviewsPage}
-      />
       <Service
         onClick={(service) => {
           handleOpenPopup(service)

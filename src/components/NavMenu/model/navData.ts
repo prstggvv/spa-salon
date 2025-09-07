@@ -12,9 +12,6 @@ export const navLinks: INavLinkData[] = [
     label: 'Наша команда',
     href: '#team',
   },
-  { label: 'Отзывы',
-    href: '#reviews',
-  },
   { 
     label: 'Сервис',
     href: '#service',

@@ -5,18 +5,15 @@ interface IAdvatagesDataProps {
 
 export const advantagesData: IAdvatagesDataProps[] = [
   {
-    heading: 'Заботимся о вас',
-    subtitle: `Individual approach to each client with customized treatments 
-              tailored to your unique needs.`,
+    heading: 'Комплексные спа ритуалы',
+    subtitle: `Каждый ритуал сопровождается медитативной музыкой, аромарелаксацией и чайной церемонией для полной перезагрузки.`,
   },
   {
-    heading: 'Заботимся о вас',
-    subtitle: `Individual approach to each client with customized treatments 
-              tailored to your unique needs.`,
+    heading: 'Профессиональный уход',
+    subtitle: `Используем только проверенную и качественную косметику проверенных именитых брендов с безупречным эффектом.`,
   },
   {
-    heading: 'Заботимся о вас',
-    subtitle: `Individual approach to each client with customized treatments 
-              tailored to your unique needs.`,
+    heading: 'Внимание к деталям',
+    subtitle: `Каждая программа подбирается под ваши потребности, от выбора аромата и музыки до подбора профессиональной косметики.`,
   },
 ]

@@ -199,6 +199,7 @@
 
   .image {
     width: 100%;
+    object-position: 0% 25%;
     height: 100%;
   }
 }

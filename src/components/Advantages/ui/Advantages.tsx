@@ -1,7 +1,7 @@
 import cls from './Advantages.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import Titles from '../../../shared/ui/Titles/Titles';
-import { Heart } from 'lucide-react';
+import { Heart, Music, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { advantagesData } from '../model/advantagesData';
 
@@ -46,7 +46,7 @@ export const Advantages = ({ className }: IAdvantagesData) => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className={classNames(cls.svg, {}, [])}>
-                  <Heart />
+                  {i === 0 ? <Music /> : <Heart />}
                 </div>
                 <h2 className={classNames(cls.heading, {}, [])}>
                   {a.heading}

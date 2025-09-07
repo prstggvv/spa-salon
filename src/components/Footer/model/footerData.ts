@@ -15,15 +15,15 @@ interface IFooterLinks {
 export const footerData: IFooterDataProps[] = [
   {
     icon: Phone,
-    heading: '+7 (978) 004-45-15',
+    heading: '+7 (978) 696-80-00',
   },
   {
     icon: Mail,
-    heading: 'vany4golos@yandex.ru',
+    heading: 'igor.z.v204@mail.ru',
   },
   {
     icon: MapPin,
-    heading: 'г. Симферополь ул. 60 лет октября 15',
+    heading: 'г. Симферополь ул. Пушкина д. 4',
   },
 ];
 

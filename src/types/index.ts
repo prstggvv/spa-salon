@@ -27,3 +27,11 @@ export interface ICardProps {
   gender?: string;
   onBuy?: (title: string) => void;
 }
+
+export interface IReviewsProps {
+  id: number;
+  name: string;
+  avatar: string;
+  rating: number;
+  text: string;
+}
