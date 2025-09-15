@@ -10,6 +10,7 @@ export interface IServiceProps {
   id: number;
   title: string;
   text?: string | '';
+  list?: string[];
   master?: string | '';
   image: string;
   price: string;

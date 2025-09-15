@@ -57,14 +57,6 @@ export const Popup = ({
               </h2>
               <ul className={classNames(cls.block, {}, [])}>
                 <li className={classNames(cls.card, {}, [])}>
-                  <Clock
-                    className={classNames(cls.icon, {}, [])}
-                  />
-                  <p className={classNames(cls.text, {}, [])}>
-                    {`${service?.duration} минут`}
-                  </p>
-                </li>
-                <li className={classNames(cls.card, {}, [])}>
                   <UserPlus
                     className={classNames(cls.icon, {}, [])}
                   />
@@ -82,9 +74,21 @@ export const Popup = ({
                 </li>
               </ul>
               <p className={classNames(cls.price, {}, [])}>{service?.price} руб.</p>
-              <p className={classNames(cls.description, {}, [])}>
-                {service?.text}
-              </p>
+              {service?.text && (
+                <p className={classNames(cls.description, {}, [])}>
+                  {service.text}
+                </p>
+              )}
+
+              {service?.list && service.list.length > 0 && (
+                <div className={classNames(cls.descriptionWrapper, {}, [])}>
+                  {service.list.map((item, index) => (
+                    <p key={index} className={classNames(cls.description, {}, [])}>
+                      {index + 1}. {item}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
             <Button
               type='button'
