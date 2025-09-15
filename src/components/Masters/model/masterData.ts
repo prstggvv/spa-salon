@@ -1,5 +1,5 @@
-import IgorImage from '../../../shared/assets/images/masters/IGOR.JPG';
-import DashaImage from '../../../shared/assets/images/masters/DASHA.JPG';
+import IgorImage from '../../../shared/assets/images/masters/IGOR.jpeg';
+import DashaImage from '../../../shared/assets/images/masters/DASHA.jpeg';
 
 interface IModelDataProps {
   image: string;

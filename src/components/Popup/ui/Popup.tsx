@@ -3,7 +3,7 @@ import { classNames } from '../../../shared/lib/classNames/classNames';
 import type React from 'react';
 import ImageWW from '../../../shared/assets/images/IMAGE.jpeg';
 import Button from '../../../shared/ui/Button/Button';
-import { X, Clock, UserPlus, User } from 'lucide-react';
+import { X, UserPlus, User } from 'lucide-react';
 import type { IServiceProps } from '../../../types';
 import { motion } from "framer-motion";
 
