@@ -10,6 +10,7 @@ interface AboutSpaProps {
   refer: RefObject<HTMLElement | null>;
   onScroll?: () => void;
 }
+
 export const AboutSpa = ({
   className,
   refer,
@@ -60,4 +61,3 @@ export const AboutSpa = ({
     </section>
   )
 };
-
