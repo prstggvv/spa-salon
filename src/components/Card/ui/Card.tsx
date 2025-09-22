@@ -1,26 +1,22 @@
 import cls from './Card.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { User, Users } from 'lucide-react';
-
-interface ICardData {
-  className?: string;
-  title: string;
-  image: string;
-  price: string;
-  onMore?: () => void;
-  gender?: string;
-}
+import type { ICardProps } from '../../../types';
 
 export const Card = ({
   className,
   title,
   image,
-  price,
   onMore,
   gender,
-}: ICardData) => {
+  onBuy,
+}: ICardProps) => {
   const handleCardClick = () => {
-    onMore();
+    onMore?.();
+  }
+
+  const handleCardBuy = () => {
+    onBuy?.(title);
   }
 
   const getGenderIcon = (gender?: string) => {
@@ -86,9 +82,9 @@ export const Card = ({
         </div>
         <div className={classNames(cls.info, {}, [])}>
           <h3 className={classNames(cls.heading, {}, [])}>{title}</h3>
-          <p className={classNames(cls.price, {}, [])}>
+          {/*<p className={classNames(cls.price, {}, [])}>
             {`${price} руб`}
-          </p>
+          </p>*/}
         </div>
       </div>
       <div className={classNames(cls.buttons, {}, [])}>
@@ -100,6 +96,7 @@ export const Card = ({
         </button>
         <button
           className={classNames(cls.button, {}, [cls.buttonRight])}
+          onClick={handleCardBuy}
         >
           Купить
         </button>

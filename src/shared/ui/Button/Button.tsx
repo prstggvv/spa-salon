@@ -1,5 +1,6 @@
 import cls from './Button.module.css';
 import { classNames } from '../../lib/classNames/classNames';
+import { motion } from 'framer-motion';
 
 interface IButtonProps {
   className?: string;
@@ -15,13 +16,13 @@ const Button = ({
   onClick,
 }: IButtonProps) => {
   return (
-    <button
+    <motion.button
       className={classNames(cls.button, {}, [className || ''])}
       type={type}
       onClick={onClick}
     >
       {children}
-    </button>
+    </motion.button>
   )
 };
 

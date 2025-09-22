@@ -1,21 +1,39 @@
-import PhoneIcon from '../../../shared/assets/images/icons/lucide/phone.svg';
+import { Phone, MapPin, Mail, type LucideIcon } from 'lucide-react';
+import VKSvg from '../../../shared/assets/images/icons/hrefs/vk.svg';
+import TelegramSvg from '../../../shared/assets/images/icons/hrefs/telegram.svg';
 
 interface IFooterDataProps {
-  icon: string;
+  icon: LucideIcon;
   heading: string;
+}
+
+interface IFooterLinks {
+  icon: string;
+  link: string;
 }
 
 export const footerData: IFooterDataProps[] = [
   {
-    icon: PhoneIcon,
-    heading: '+7 (978) 004-45-15',
+    icon: Phone,
+    heading: '+7 (978) 696-80-00',
   },
   {
-    icon: PhoneIcon,
-    heading: 'vany4golos@yandex.ru',
+    icon: Mail,
+    heading: 'igor.z.v204@mail.ru',
   },
   {
-    icon: PhoneIcon,
-    heading: 'г. Симферополь ул. 60 лет октября 15',
+    icon: MapPin,
+    heading: 'г. Симферополь ул. Пушкина д. 4',
   },
+];
+
+export const footerLinks: IFooterLinks[] = [
+  {
+    icon: VKSvg,
+    link: 'Вконтакте',
+  },
+  {
+    icon: TelegramSvg,
+    link: 'Телеграм',
+  }
 ]

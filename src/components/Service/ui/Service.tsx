@@ -2,24 +2,30 @@ import cls from './Service.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import { serviceData } from '../model/serviceData';
 import { Card } from '../../Card';
-
 import StrelkaImage from '../../../shared/assets/images/icons/Strelka.svg';
 import { useEffect, useState } from 'react';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
+import type { RefObject } from 'react';
+import type { IServiceProps } from '../../../types';
+import { useSwipeable } from "react-swipeable";
 
 interface IServiceData {
   className?: string;
-  onClick: () => void;
+  onClick: (service: IServiceProps) => void;
+  onBuy: (title: string) => void;
+  refer: RefObject<HTMLElement | null>;
 }
 
-export const Service = ({ className, onClick }: IServiceData) => {
+export const Service = ({ 
+  className,
+  onClick,
+  onBuy,
+  refer,
+}: IServiceData) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cards, setCards] = useState(3);
-
-  console.log(cards);
-  console.log(serviceData);
-
+  
   const updateCardsPerView = () => {
     const width = window.innerWidth;
     if (width < 656) {
@@ -48,32 +54,33 @@ export const Service = ({ className, onClick }: IServiceData) => {
   }, [cards, serviceData.length, currentIndex]);
 
   const max = Math.max(0, serviceData.length - cards);
-  const total = Math.ceil(serviceData.length / cards);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => Math.min(prev + 1, max));
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => Math.min(prev - 1, 0));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }
 
-  const goToSlide = (dotIndex: number) => {
-    const newIndex = Math.min(dotIndex * cards, max)
-    setCurrentIndex(newIndex);
-  }
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
 
-  const getCurrentDotIndex = () => {
-    return Math.floor(currentIndex / cards)
-  }
-  
   const style = {
     flex: `0 0 calc(${100 / cards}% - 20px)`,
     maxWidth: `calc(${100 / cards}% - 20px)`,
   };
 
   return (
-    <section className={classNames(cls.section, {}, [className || ''])}>
+    <section
+      className={classNames(cls.section, {}, [className || ''])}
+      id='#service'
+      ref={refer}
+    >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
           dark={false}
@@ -99,6 +106,7 @@ export const Service = ({ className, onClick }: IServiceData) => {
             />
           </motion.button>
           <motion.div
+            {...handlers}
             className={classNames(cls.slider, {}, [])}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +135,8 @@ export const Service = ({ className, onClick }: IServiceData) => {
                       image={s.image}
                       price={s.price}
                       gender={s.gender}
-                      onMore={onClick}
+                      onMore={() => onClick(s)}
+                      onBuy={onBuy}
                     />
                   </motion.li>
                 )
@@ -152,23 +161,6 @@ export const Service = ({ className, onClick }: IServiceData) => {
             />
           </motion.button>
         </div>
-        {total > 1 && (
-          <div className={classNames(cls.dots, {}, [])}>
-            {Array.from({ length: total - 1 }).map((_, i) => (
-              <motion.button
-                key={i}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => goToSlide(i)}
-                className={classNames(cls.dot,
-                  {
-                    [cls.dotActive]: getCurrentDotIndex() === i
-                  }, [])}
-              >
-              </motion.button>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   )

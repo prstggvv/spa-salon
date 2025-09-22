@@ -6,45 +6,20 @@ import { navLinks } from '../../NavMenu/model/navData';
 import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
 import { motion } from 'framer-motion';
 import LogoSvg from '../../../shared/assets/images/icons/logo_main.svg';
+import { fadeIn, staggerChildren, navItem, } from '../../../shared/lib/constants';
 
-export const Header = () => {
+interface IHeaderData {
+  className?: string;
+  scrollPage: (id: string) => void;
+  activeSection?: string;
+}
+export const Header = ({
+  className,
+  scrollPage,
+  activeSection,
+}: IHeaderData) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        duration: 0.6, 
-      } 
-    },
-  };
-
-  const staggerChildren = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const navItem = {
-    hidden: { 
-      opacity: 0,
-      y: -20 
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { 
-        duration: 0.3,
-      }
-    },
-  };
 
   const handleBurgerClick = useCallback(() => {
     setMenuOpen((prev) => !prev);
@@ -72,9 +47,9 @@ export const Header = () => {
   return (
     <motion.header
       initial='hidden'
-      animate="visible"
+      animate='visible'
       variants={fadeIn}
-      className={classNames(cls.header, { [cls.scrolled]: scrolled })}
+      className={classNames(cls.header, { [cls.scrolled]: scrolled }, [className ?? ''])}
     >
       <div className={classNames(cls.container)}>
         <img
@@ -92,13 +67,22 @@ export const Header = () => {
           {navLinks.map((link) => (
             <motion.a
               key={link.label}
-              className={classNames(cls.link, { [cls.scrolled]: scrolled }, [])}
+              className={classNames(cls.link, 
+                { 
+                  [cls.scrolled]: scrolled,
+                  [cls.active]: activeSection === link.href
+                }, [])}
               href={link.href}
               tabIndex={0}
               aria-label={link.label}
               variants={navItem}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
+              onClick={(e: any) => {
+                e.preventDefault();
+
+                scrollPage(link.href)
+              }}
             >
               {link.label}
             </motion.a>
@@ -111,6 +95,7 @@ export const Header = () => {
           handleKeyDown={handleKeyDown}
         />
         <NavMenu 
+          scrollPage={scrollPage}
           open={menuOpen}
           onClose={handleNavLinkClick}
         />

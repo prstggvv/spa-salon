@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 528px;
 }
 
 .uptitle {
@@ -19,8 +20,7 @@
 
 .title {
   font-size: 32px;
-  font-family: var(--font-open-sans-semibold);
-  font-weight: 300;
+  font-family: var(--font-cera-pro-medium);
   text-align: center;
 }
 

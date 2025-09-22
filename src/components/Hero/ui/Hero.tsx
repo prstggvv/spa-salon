@@ -37,7 +37,7 @@ export const Hero = ({ className }: HeroProps) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={classNames(cls.title, {}, [])}
           >
-            Le Hola Spa
+            Le Halo SPA
           </motion.h1>
           <motion.p
             className={classNames(cls.subtitle, {}, [])}
@@ -45,7 +45,7 @@ export const Hero = ({ className }: HeroProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Уютный спа-салон в центре города
+            Спа головы, лица и тела в самом центре Симферополя
           </motion.p>
         </div>
       </div>

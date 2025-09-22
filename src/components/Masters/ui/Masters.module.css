@@ -81,7 +81,7 @@
 
 .heading {
   font-size: 24px;
-  font-family: var(--font-open-sans-semibold);
+  font-family: var(--font-cera-pro-medium);
   color: #222;
 }
 
@@ -199,6 +199,7 @@
 
   .image {
     width: 100%;
+    object-position: 0% 25%;
     height: 100%;
   }
 }

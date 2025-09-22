@@ -10,8 +10,6 @@ interface InputProps {
   onChange: (evt: ChangeEvent<HTMLInputElement>) => void;
   value: string;
   name: string;
-  error: boolean;
-  errorText: string;
   ref?: any,
 }
 
@@ -22,13 +20,11 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(({
   onChange,
   value,
   name,
-  error,
-  errorText,
 }, ref) => {
   return (
     <label className={classNames(cls.label, {}, [className || ''])}>
       <input
-        className={classNames(cls.input, { [cls.errorInput]: error }, [])}
+        className={classNames(cls.input, {}, [])}
         type={type}
         placeholder={placeholder}
         onChange={onChange}
@@ -36,7 +32,6 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(({
         name={name}
         ref={ref}
       />
-      {error && <span className={classNames(cls.errorText, {}, [])}>{errorText}</span>}
     </label>
   );
 });

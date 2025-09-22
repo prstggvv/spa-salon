@@ -1,9 +1,7 @@
 import cls from './Footer.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import { Phone, MapPin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-import VKSvg from '../../../shared/assets/images/icons/hrefs/vk.svg';
-import TelegramSvg from '../../../shared/assets/images/icons/hrefs/telegram.svg';
+import { footerData, footerLinks } from '../model/footerData';
 
 interface IFooterData {
   className?: string;
@@ -52,67 +50,48 @@ export const Footer = ({ className }: IFooterData) => {
           className={classNames(cls.list, {}, [])}
           variants={containerVariants}
         >
-          <motion.li
-            className={classNames(cls.card, {}, [])}
-            variants={itemVariants}
-          >
-            <motion.div
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className={classNames(cls.img, {}, [])}
+          {footerData.map(({ icon: Icon, heading }, i) => {
+            return (
+              <motion.li
+                className={classNames(cls.card, {}, [])}
+                variants={itemVariants}
+                key={i}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className={classNames(cls.img, {}, [])}
 
-            >
-              <Phone />
-            </motion.div>
-            <p className={classNames(cls.text, {}, [])}>
-              +7 (978) 004-45-15
-            </p>
-          </motion.li>
-          <li className={classNames(cls.card, {}, [])}>
-            <div
-              className={classNames(cls.img, {}, [])}
-
-            >
-              <Mail />
-            </div>
-            <p className={classNames(cls.text, {}, [])}>
-              vany4golos@yandex.ru
-            </p>
-          </li>
-          <li className={classNames(cls.card, {}, [])}>
-            <div
-              className={classNames(cls.img, {}, [])}
-
-            >
-              <MapPin />
-            </div>
-            <p className={classNames(cls.text, {}, [])}>
-              г. Симферополь ул. 60 лет октября 15
-            </p>
-          </li>
+                >
+                  <Icon />
+                </motion.div>
+                <p className={classNames(cls.text, {}, [])}>
+                  {heading}
+                </p>
+              </motion.li>
+            )
+          })}
         </motion.ul>
         <nav className={classNames(cls.links, {}, [])}>
-          <a
-            className={classNames(cls.link, {}, [])}
-            href='#'
-          >
-            <img
-              className={classNames(cls.svg, {}, [])}
-              alt='Логотип соцсети'
-              src={VKSvg}
-            />
-            <p className={classNames(cls.linkText, {}, [])}>Вконтакте</p>
-          </a>
-          <a
-            className={classNames(cls.link, {}, [])}
-            href='#'
-          >
-            <img
-              className={classNames(cls.svg, {}, [])}
-              alt='Логотип соцсети'
-              src={TelegramSvg}
-            />
-            <p className={classNames(cls.linkText, {}, [])}>Телеграм</p>
-          </a>
+          {footerLinks.map((l, i) => {
+            return (
+              <motion.a
+                className={classNames(cls.link, {}, [])}
+                href='#'
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                key={i}
+              >
+                <img
+                  className={classNames(cls.svg, {}, [])}
+                  alt='Логотип соцсети'
+                  src={l.icon}
+                />
+                <p className={classNames(cls.linkText, {}, [])}>
+                  {l.link}
+                </p>
+              </motion.a>
+            )
+          })}
         </nav>
       </motion.div>
     </footer>

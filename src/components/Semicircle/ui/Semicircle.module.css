@@ -1,8 +1,0 @@
-.main {
-  width: 100%;
-  height: 50px;
-  background-color: var(--bg-prime);
-  border-top-left-radius: 50% 110px;
-  border-top-right-radius: 50% 110px;
-  margin-top: -80px;
-}

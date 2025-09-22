@@ -8,7 +8,12 @@ interface IBurgerButton {
   handleKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
 }
 
-const BurgerButton = ({ className, menuOpen, handleBurgerClick, handleKeyDown }: IBurgerButton) => {
+const BurgerButton = ({ 
+  className,
+  menuOpen,
+  handleBurgerClick,
+  handleKeyDown,
+}: IBurgerButton) => {
   return (
     <button
       className={classNames(cls.burger, { [cls.open]: menuOpen }, [className || ''])}

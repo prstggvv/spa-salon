@@ -4,36 +4,22 @@ import Titles from '../../../shared/ui/Titles/Titles';
 import Button from '../../../shared/ui/Button/Button';
 import { motion } from 'framer-motion';
 import { masterData } from '../model/masterData';
+import { containerVariants, masterVariants, } from '../../../shared/lib/constants';
+import type { RefObject } from 'react';
 
 interface IMastersData {
   className?: string;
+  refer: RefObject<HTMLElement | null>;
+  onScroll?: () => void;
 }
 
-export const Masters = ({ className }: IMastersData) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.4,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const masterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  }
-
+export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
   return (
-    <section className={classNames(cls.section, {}, [className ?? ''])}>
+    <section
+      className={classNames(cls.section, {}, [className ?? ''])}
+      ref={refer}
+      id='#team'
+    >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
           dark={false}
@@ -129,21 +115,44 @@ export const Masters = ({ className }: IMastersData) => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.7 }}
                     >
-                      <li className={classNames(cls.serviceCard, {}, [])}>
-                        <p className={classNames(cls.job, {}, [])}>
-                          Услуга 1
-                        </p>
-                      </li>
-                      <li className={classNames(cls.serviceCard, {}, [])}>
-                        <p className={classNames(cls.job, {}, [])}>
-                          Услуга 2
-                        </p>
-                      </li>
+                      {i === 0 ? (
+                        <>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-тела
+                            </p>
+                          </li>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-программа для спины
+                            </p>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-головы
+                            </p>
+                          </li>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              СПА-головы и лица
+                            </p>
+                          </li>
+                          <li className={classNames(cls.serviceCard, {}, [])}>
+                            <p className={classNames(cls.job, {}, [])}>
+                              Восстанавливающий СПА-уход за волосами
+                            </p>
+                          </li>
+                        </>
+                      )}
                     </motion.ul>
                   </div>
                   <Button
                     type='button'
                     className={classNames(cls.button, {}, [])}
+                    onClick={onScroll}
                     children='Подробнее'
                   />
                 </motion.div>

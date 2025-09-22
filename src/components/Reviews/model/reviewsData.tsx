@@ -1,10 +1,4 @@
-interface IReviewsProps {
-  id: number;
-  name: string;
-  avatar: string;
-  rating: number;
-  text: string;
-}
+import type { IReviewsProps } from "../../../types";
 
 export const reviewsData: IReviewsProps[] = [
   {
