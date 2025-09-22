@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 
 export default () => {
   return defineConfig({
-    base: '/spa-salon/',
+    base: '/',
     plugins: [
       react(),
       tsconfigPaths(),

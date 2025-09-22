@@ -73,7 +73,9 @@ export const Popup = ({
                   </p>
                 </li>
               </ul>
-              <p className={classNames(cls.price, {}, [])}>{service?.price} руб.</p>
+              {/*<p className={classNames(cls.price, {}, [])}>
+                {service?.price} руб.
+              </p>*/}
               {service?.text && (
                 <p className={classNames(cls.description, {}, [])}>
                   {service.text}

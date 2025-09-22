@@ -7,7 +7,6 @@ export const Card = ({
   className,
   title,
   image,
-  price,
   onMore,
   gender,
   onBuy,
@@ -83,9 +82,9 @@ export const Card = ({
         </div>
         <div className={classNames(cls.info, {}, [])}>
           <h3 className={classNames(cls.heading, {}, [])}>{title}</h3>
-          <p className={classNames(cls.price, {}, [])}>
+          {/*<p className={classNames(cls.price, {}, [])}>
             {`${price} руб`}
-          </p>
+          </p>*/}
         </div>
       </div>
       <div className={classNames(cls.buttons, {}, [])}>
