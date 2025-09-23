@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && scp -r ./dist/* www@lehalospa.ru:/home/www/applications/spa-salon-front"
   },
   "dependencies": {
     "framer-motion": "^12.18.1",
