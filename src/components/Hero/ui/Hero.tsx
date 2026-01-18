@@ -1,6 +1,6 @@
 import cls from './Hero.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import HeroImage from '../../../shared/assets/images/hero.avif';
+import HeroImage from '../../../shared/assets/images/cards/spahead.jpg';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -45,7 +45,15 @@ export const Hero = ({ className }: HeroProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Спа головы, лица и тела в самом центре Симферополя
+            спа головы, лица и волос с аквамедитацией.
+          </motion.p>
+          <motion.p
+            className={classNames(cls.subtitle, {}, [])}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            спокойствие, забота и осознанный уход.
           </motion.p>
         </div>
       </div>

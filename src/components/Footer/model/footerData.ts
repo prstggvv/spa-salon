@@ -1,5 +1,5 @@
 import { Phone, MapPin, Mail, type LucideIcon } from 'lucide-react';
-import VKSvg from '../../../shared/assets/images/icons/hrefs/vk.svg';
+import DocumentSvg from '../../../shared/assets/images/icons/hrefs/document.svg';
 import TelegramSvg from '../../../shared/assets/images/icons/hrefs/telegram.svg';
 
 interface IFooterDataProps {
@@ -15,22 +15,22 @@ interface IFooterLinks {
 export const footerData: IFooterDataProps[] = [
   {
     icon: Phone,
-    heading: '+7 (978) 696-80-00',
+    heading: '+7 (978) 912-20-57',
   },
   {
     icon: Mail,
-    heading: 'igor.z.v204@mail.ru',
+    heading: 'rybina_daria035@mail.ru',
   },
   {
     icon: MapPin,
-    heading: 'г. Симферополь ул. Пушкина д. 4',
+    heading: 'г. Симферополь',
   },
 ];
 
 export const footerLinks: IFooterLinks[] = [
   {
-    icon: VKSvg,
-    link: 'Вконтакте',
+    icon: DocumentSvg,
+    link: 'Документы',
   },
   {
     icon: TelegramSvg,

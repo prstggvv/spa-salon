@@ -7,6 +7,7 @@ interface ITitlesData {
   uptitle: string;
   title: string;
   dark: boolean;
+  isVisible: boolean;
 }
 
 const Titles = ({
@@ -14,6 +15,7 @@ const Titles = ({
   uptitle,
   title,
   dark,
+  isVisible,
 }: ITitlesData) => {
   return (
     <div
@@ -34,7 +36,8 @@ const Titles = ({
       <motion.h2
         className={classNames(cls.title,
           {
-            [cls.dark]: dark
+            [cls.dark]: dark,
+            [cls.visible]: isVisible,
           }, [])}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

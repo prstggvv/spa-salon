@@ -24,9 +24,11 @@ export const AboutSpa = ({
     >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
+          isVisible={false}
           dark={false}
           uptitle='О нас'
-          title='Уютное пространство гармонии и восстановления'
+          title='Авторские спа программы для волос и головы с аквамедитацией.
+            Профессиональный подбор ухода для лица, волос и тела.'
         />
         <div className={classNames(cls.texts, {}, [])}>
           <motion.p
@@ -36,27 +38,18 @@ export const AboutSpa = ({
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            Наш главный ритуал - японский спа головы с аквамедитацией,
-            который совмещает многоуровневый уход расслабляющими спа-массажными
-            техниками за кожей головы и волосами с использованием премиальной косметики.
-          </motion.p>
-          <motion.p
-            className={classNames(cls.subtitle, {}, [])}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          >
-            Также вас ждут спа ритуалы для тела, лица и волос, аромарелаксация и чайная церемония.
-            Мы объединяем профессиональный уход с атмосферой заботы и перезагрузки.
+            Семейный проект, созданный из любви к спокойствию, природе и здоровому образу жизни.
+            Мы - Игорь и Дарья из Симферополя, открыли пространство, где каждый сможет замедлиться, выдохнуть и почувствовать настоящую, искреннюю заботу.
+            Вдохновляемся Крымской природой и создаем продукты и услуги, которые помогают поддерживать ресурсное состояние.
           </motion.p>
         </div>
-        <Button
-          children='Подробнее'
-          onClick={onScroll}
-          type='button'
+        <a
           className={classNames(cls.button, {}, [])}
-        />
+          href='https://taplink.cc/zudina.csm'
+          target='_blank'
+        >
+          Подробнее
+        </a>
       </div>
     </section>
   )

@@ -1,5 +1,7 @@
-import IgorImage from '../../../shared/assets/images/masters/IGOR.jpeg';
-import DashaImage from '../../../shared/assets/images/masters/DASHA.jpeg';
+import FirstImage from '../../../shared/assets/images/masters/first.jpg';
+import SecondImage from '../../../shared/assets/images/masters/second.jpg';
+import ThirdImage from '../../../shared/assets/images/masters/third.jpg';
+import FourthImage from '../../../shared/assets/images/masters/fourth.jpg';
 
 interface IModelDataProps {
   image: string;
@@ -9,17 +11,23 @@ interface IModelDataProps {
 
 export const masterData: IModelDataProps[] = [
   {
-    image: IgorImage,
-    name: 'Игорь Зудин',
-    text: `Опытный спа-мастер. Специализируется на спа-программах для тела, используя профессиональные и 
-          современные техники. Создает индивидуальные ритуалы для полного расслабления и восстановления.`,
+    image: FirstImage,
+    name: 'Спа головы, лица и волос с аквамедитацией',
+    text: `Каждый ритуал сопровождается индивидуальным уходом, медитативной музыкой, аромарелаксацией и чаепитием для полной перезагрузки.`,
   },
   {
-    image: DashaImage,
-    name: 'Дарья Зудина',
-    text: `Опытный мастер по японскому спа головы и уходу за волосами и лицом.
-           Создает индивидуальные программы, сочетая древние японские 
-           традиции с современными профессиональным уходом.  Мастер по глубокому 
-           восстановлению структуры поврежденных волос.`,
+    image: SecondImage,
+    name: 'Профессиональный уход за кожей лица',
+    text: `Авторские программы для мягкого обновления и сияния.`,
+  },
+  {
+    image: ThirdImage,
+    name: 'Индивидуальные консультации',
+    text: `Подбор домашнего ухода для лица, тела и волос`,
+  },
+  {
+    image: FourthImage,
+    name: 'Подарочные  сертификаты',
+    text: `Подарите своим родным и близким настоящее спокойствие, заботу и расслабление.`,
   },
 ];

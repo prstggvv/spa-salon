@@ -200,16 +200,6 @@ const Main = ({ className }: MainProps) => {
         onScroll={() => handleScrollPage('#service')}
       />
       <Advantages />
-      <Service
-        onClick={(service) => {
-          handleOpenPopup(service)
-        }}
-        onBuy={(service) => {
-          handleAddService(service);
-          handleScrollPage('#contact');
-        }}
-        refer={scrollToServicePage}
-      />
       <ContactForm
         formData={formData}
         setFormData={setFormData}

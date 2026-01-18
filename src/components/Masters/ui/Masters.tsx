@@ -22,9 +22,10 @@ export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
     >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
+          isVisible={true}
           dark={false}
           className={classNames(cls.titles, {}, [])}
-          uptitle='Мастера'
+          uptitle='Наши направления'
           title='Познакомьтесь с нашей командой'
         />
         <motion.ul
@@ -58,7 +59,10 @@ export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
                   </div>
                   <div className={classNames(cls.imageMobile, {}, [])}>
                     <img
-                      className={classNames(cls.image, {}, [])}
+                      className={classNames(cls.image, {
+                        [cls.low]: i === 2,
+                        [cls.lowSecond]: i === 3,
+                      }, [])}
                       alt='#'
                       src={c.image}
                     />
@@ -72,15 +76,6 @@ export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
                   <div className={classNames(cls.mainBlock, {}, [])}>
-                    <motion.p
-                      className={classNames(cls.master, {}, [])}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                    >
-                      Мастер
-                    </motion.p>
                     <motion.h3
                       className={classNames(cls.heading, {}, [])}
                       initial={{ opacity: 0, y: 20 }}
@@ -99,62 +94,14 @@ export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
                     >
                       {c.text}
                     </motion.p>
-                    <motion.h4
-                      className={classNames(cls.spec, {}, [])}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                    >
-                      Специализация
-                    </motion.h4>
-                    <motion.ul
-                      className={classNames(cls.servicesList, {}, [])}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.7 }}
-                    >
-                      {i === 0 ? (
-                        <>
-                          <li className={classNames(cls.serviceCard, {}, [])}>
-                            <p className={classNames(cls.job, {}, [])}>
-                              СПА-тела
-                            </p>
-                          </li>
-                          <li className={classNames(cls.serviceCard, {}, [])}>
-                            <p className={classNames(cls.job, {}, [])}>
-                              СПА-программа для спины
-                            </p>
-                          </li>
-                        </>
-                      ) : (
-                        <>
-                          <li className={classNames(cls.serviceCard, {}, [])}>
-                            <p className={classNames(cls.job, {}, [])}>
-                              СПА-головы
-                            </p>
-                          </li>
-                          <li className={classNames(cls.serviceCard, {}, [])}>
-                            <p className={classNames(cls.job, {}, [])}>
-                              СПА-головы и лица
-                            </p>
-                          </li>
-                          <li className={classNames(cls.serviceCard, {}, [])}>
-                            <p className={classNames(cls.job, {}, [])}>
-                              Восстанавливающий СПА-уход за волосами
-                            </p>
-                          </li>
-                        </>
-                      )}
-                    </motion.ul>
                   </div>
-                  <Button
-                    type='button'
+                  <a
                     className={classNames(cls.button, {}, [])}
-                    onClick={onScroll}
-                    children='Подробнее'
-                  />
+                    href='https://dikidi.net/1497252'
+                    target='_blank'
+                  >
+                    Записаться
+                  </a>
                 </motion.div>
               </motion.li>
             )

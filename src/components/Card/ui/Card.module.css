@@ -22,8 +22,9 @@
 
 .image {
   z-index: 0;
+  max-height: 273px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -46,7 +47,7 @@
   font-size: 16px;
   font-family: var(--font-cera-pro-medium);
   color: #fff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .info {
