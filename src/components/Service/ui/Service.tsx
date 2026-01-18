@@ -17,7 +17,7 @@ interface IServiceData {
   refer: RefObject<HTMLElement | null>;
 }
 
-export const Service = ({ 
+export const Service = ({
   className,
   onClick,
   onBuy,
@@ -25,7 +25,7 @@ export const Service = ({
 }: IServiceData) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cards, setCards] = useState(3);
-  
+
   const updateCardsPerView = () => {
     const width = window.innerWidth;
     if (width < 656) {
@@ -83,6 +83,7 @@ export const Service = ({
     >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
+          isVisible={false}
           dark={false}
           uptitle='Сервис'
           title='Наши услуги'

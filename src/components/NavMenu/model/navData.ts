@@ -8,15 +8,15 @@ export const navLinks: INavLinkData[] = [
     label: 'О нас',
     href: '#about',
   },
-  { 
-    label: 'Наша команда',
+  {
+    label: 'Направления',
     href: '#team',
   },
-  { 
-    label: 'Сервис',
+  {
+    label: 'Преимущества',
     href: '#service',
   },
-  { 
+  {
     label: 'Контакты',
     href: '#contact',
   },

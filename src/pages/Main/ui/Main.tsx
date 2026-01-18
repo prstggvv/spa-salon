@@ -199,7 +199,9 @@ const Main = ({ className }: MainProps) => {
         refer={scrollToTeamPage}
         onScroll={() => handleScrollPage('#service')}
       />
-      <Advantages />
+      <Advantages
+        refer={scrollToServicePage}
+      />
       <ContactForm
         formData={formData}
         setFormData={setFormData}

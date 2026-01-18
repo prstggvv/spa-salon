@@ -4,12 +4,17 @@ import Titles from '../../../shared/ui/Titles/Titles';
 import { Heart, Music, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { advantagesData } from '../model/advantagesData';
+import type { RefObject } from 'react';
 
 interface IAdvantagesData {
   className?: string;
+  refer: RefObject<HTMLElement | null>;
 }
 
-export const Advantages = ({ className }: IAdvantagesData) => {
+export const Advantages = ({
+  className,
+  refer,
+}: IAdvantagesData) => {
   const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: {
@@ -23,9 +28,14 @@ export const Advantages = ({ className }: IAdvantagesData) => {
   }
 
   return (
-    <section className={classNames(cls.section, {}, [className ?? ''])}>
+    <section
+      className={classNames(cls.section, {}, [className ?? ''])}
+      ref={refer}
+      id='#service'
+    >
       <div className={classNames(cls.container, {}, [])}>
         <Titles
+          isVisible={false}
           dark={true}
           title='Почему выбирают нас'
           uptitle='Наши преимущества'

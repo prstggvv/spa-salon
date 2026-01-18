@@ -1,11 +1,9 @@
 import cls from './ContactForm.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import React from 'react';
-import type { ChangeEvent, RefObject } from 'react';
-import Button from '../../../shared/ui/Button/Button';
+import type { RefObject } from 'react';
 import { motion } from 'framer-motion';
 import type { ContactFormState } from '../../../types';
-import { useForm } from '../../../shared/lib/hooks/useForm';
 
 interface IContactForm {
   className?: string;

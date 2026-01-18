@@ -1,6 +1,5 @@
 import cls from './AboutSpa.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
-import Button from '../../../shared/ui/Button/Button';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
 import { type RefObject } from 'react';
