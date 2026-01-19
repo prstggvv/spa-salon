@@ -10,6 +10,7 @@ interface IFooterDataProps {
 interface IFooterLinks {
   icon: string;
   link: string;
+  href: string;
 }
 
 export const footerData: IFooterDataProps[] = [
@@ -31,9 +32,11 @@ export const footerLinks: IFooterLinks[] = [
   {
     icon: DocumentSvg,
     link: 'Документы',
+    href: 'https://disk.yandex.ru/d/tmKFNcufOqv7aw',
   },
   {
     icon: TelegramSvg,
     link: 'Телеграм',
+    href: 'https://t.me/zudina_csm',
   }
 ]

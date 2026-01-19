@@ -5,7 +5,7 @@ import { NavMenu } from '../../../components/NavMenu';
 import { navLinks } from '../../NavMenu/model/navData';
 import BurgerButton from '../../../shared/ui/BurgerButton/BurgerButton';
 import { motion } from 'framer-motion';
-import LogoSvg from '../../../shared/assets/images/icons/logo_main.svg';
+import LogoSvg from '../../../shared/assets/images/icons/logo.svg';
 import { fadeIn, staggerChildren, navItem, } from '../../../shared/lib/constants';
 
 interface IHeaderData {
@@ -57,7 +57,7 @@ export const Header = ({
           src={LogoSvg}
           alt='картинка'
         />
-        <motion.nav 
+        <motion.nav
           className={classNames(cls.nav, { [cls.scrolled]: scrolled }, [])}
           variants={staggerChildren}
           initial='hidden'
@@ -67,8 +67,8 @@ export const Header = ({
           {navLinks.map((link) => (
             <motion.a
               key={link.label}
-              className={classNames(cls.link, 
-                { 
+              className={classNames(cls.link,
+                {
                   [cls.scrolled]: scrolled,
                   [cls.active]: activeSection === link.href
                 }, [])}
@@ -88,13 +88,13 @@ export const Header = ({
             </motion.a>
           ))}
         </motion.nav>
-        <BurgerButton 
+        <BurgerButton
           className={classNames(cls.burger, { [cls.scrolled]: scrolled }, [])}
           menuOpen={menuOpen}
           handleBurgerClick={handleBurgerClick}
           handleKeyDown={handleKeyDown}
         />
-        <NavMenu 
+        <NavMenu
           scrollPage={scrollPage}
           open={menuOpen}
           onClose={handleNavLinkClick}
