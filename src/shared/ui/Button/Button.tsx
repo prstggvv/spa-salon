@@ -4,25 +4,26 @@ import { motion } from 'framer-motion';
 
 interface IButtonProps {
   className?: string;
-  type: 'button' | 'reset' | 'submit';
   children: any;
-  onClick?: () => void;
+  href: string;
 }
 
-const Button = ({ 
+const Button = ({
   className,
-  type,
   children,
-  onClick,
+  href,
 }: IButtonProps) => {
   return (
-    <motion.button
+    <motion.a
       className={classNames(cls.button, {}, [className || ''])}
-      type={type}
-      onClick={onClick}
+      href={href}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      target='_blank'
     >
       {children}
-    </motion.button>
+    </motion.a>
   )
 };
 

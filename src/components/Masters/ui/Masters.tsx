@@ -4,6 +4,7 @@ import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
 import { masterData } from '../model/masterData';
 import { containerVariants, masterVariants, } from '../../../shared/lib/constants';
+import Button from '../../../shared/ui/Button/Button';
 import type { RefObject } from 'react';
 
 interface IMastersData {
@@ -94,13 +95,11 @@ export const Masters = ({ className, refer }: IMastersData) => {
                       {c.text}
                     </motion.p>
                   </div>
-                  <a
+                  <Button
                     className={classNames(cls.button, {}, [])}
-                    href='https://dikidi.net/1497252'
-                    target='_blank'
-                  >
-                    Записаться
-                  </a>
+                    href='https://taplink.cc/zudina.csm'
+                    children={i === 3 ? 'Забронировать' : 'Записаться'}
+                  />
                 </motion.div>
               </motion.li>
             )

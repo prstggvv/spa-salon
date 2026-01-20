@@ -3,6 +3,7 @@ import { classNames } from '../../../shared/lib/classNames/classNames';
 import Titles from '../../../shared/ui/Titles/Titles';
 import { motion } from 'framer-motion';
 import { type RefObject } from 'react';
+import Button from '../../../shared/ui/Button/Button';
 
 interface AboutSpaProps {
   className?: string;
@@ -41,13 +42,11 @@ export const AboutSpa = ({
             Вдохновляемся Крымской природой и создаем продукты и услуги, которые помогают поддерживать ресурсное состояние.
           </motion.p>
         </div>
-        <a
+        <Button
           className={classNames(cls.button, {}, [])}
           href='https://taplink.cc/zudina.csm'
-          target='_blank'
-        >
-          Подробнее
-        </a>
+          children={'Подробнее'}
+        />
       </div>
     </section>
   )
