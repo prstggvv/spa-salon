@@ -97,7 +97,7 @@ export const Masters = ({ className, refer }: IMastersData) => {
                   </div>
                   <Button
                     className={classNames(cls.button, {}, [])}
-                    href='https://taplink.cc/zudina.csm'
+                    href='https://dikidi.net/1497252?p=0.pi'
                     children={i === 3 ? 'Забронировать' : 'Записаться'}
                   />
                 </motion.div>
