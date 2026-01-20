@@ -3,10 +3,9 @@ import { classNames } from "../../../shared/lib/classNames/classNames";
 import cls from './Main.module.css';
 import { AboutSpa } from "../../../components/AboutSpa";
 import { Hero } from "../../../components/Hero";
-import { Service } from "../../../components/Service";
 import { ContactForm } from "../../../components/ContactForm";
 import { Masters } from "../../../components/Masters";
-import { Popup } from "../../../components/Popup/ui/Popup";
+// import { Popup } from "../../../components/Popup/ui/Popup";
 import { Advantages } from "../../../components/Advantages";
 import { Footer } from "../../../components/Footer/ui/Footer";
 import { useState, type RefObject, useRef, type FormEvent, useEffect } from "react";
@@ -14,19 +13,19 @@ import type { ContactFormState } from "../../../types";
 import { BOT_ID, BOT_TOKEN, } from "../../../shared/lib/constants";
 import { TelegramApi } from "../../../shared/lib/api/TelegramApi";
 import { Notification } from "../../../components/Notification";
-import type { IServiceProps } from "../../../types";
-import { AnimatePresence } from "framer-motion";
+// import type { IServiceProps } from "../../../types";
+// import { AnimatePresence } from "framer-motion";
 
 interface MainProps {
   className?: string;
 }
 
 const Main = ({ className }: MainProps) => {
-  const [isPopup, setIsPopup] = useState<boolean>(false);
+  // const [isPopup, setIsPopup] = useState<boolean>(false);
   const [isNotification, setIsNotification] = useState<boolean>(false);
   const [typeNotification, setTypeNotification] = useState<'succes' | 'error'>('succes');
   const [activeSection, setActiveSection] = useState<string>('');
-  const [selectedService, setSelectedService] = useState<IServiceProps | null>(null);
+  // const [selectedService, setSelectedService] = useState<IServiceProps | null>(null);
 
   const [formData, setFormData] = useState<ContactFormState>({
     name: '',
@@ -100,30 +99,31 @@ const Main = ({ className }: MainProps) => {
     elementRef?.current?.scrollIntoView({ behavior: 'smooth' });
     console.log(elementRef);
   };
-
-  const handleOpenPopup = (service: IServiceProps) => {
-    setSelectedService(service);
-    setIsPopup(true);
-  }
-
-  const handleClosePopup = () => {
-    setIsPopup(false);
-    setSelectedService(null);
-  }
-
-  const handleAddService = (title: string) => {
-    setFormData((prev) => {
-      if (prev.selectedServices.includes(title)) {
-        return prev;
-      }
-
-      return {
-        ...prev,
-        selectedServices: [...prev.selectedServices, title],
+  /*
+    const handleOpenPopup = (service: IServiceProps) => {
+      setSelectedService(service);
+      setIsPopup(true);
+    }
+  
+    const handleClosePopup = () => {
+      setIsPopup(false);
+      setSelectedService(null);
+    }
+    */
+  /*
+      const handleAddService = (title: string) => {
+        setFormData((prev) => {
+          if (prev.selectedServices.includes(title)) {
+            return prev;
+          }
+  
+          return {
+            ...prev,
+            selectedServices: [...prev.selectedServices, title],
+          };
+        });
       };
-    });
-  };
-
+      */
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
@@ -171,6 +171,7 @@ const Main = ({ className }: MainProps) => {
         isOpen={isNotification}
         onClose={() => setIsNotification(false)}
       />
+      {/*
       <AnimatePresence>
         {isPopup && (
           <Popup
@@ -186,6 +187,7 @@ const Main = ({ className }: MainProps) => {
           />
         )}
       </AnimatePresence>
+      */}
       <Header
         activeSection={activeSection}
         scrollPage={handleScrollPage}

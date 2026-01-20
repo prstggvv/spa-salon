@@ -1,7 +1,6 @@
 import cls from './Masters.module.css';
 import { classNames } from '../../../shared/lib/classNames/classNames';
 import Titles from '../../../shared/ui/Titles/Titles';
-import Button from '../../../shared/ui/Button/Button';
 import { motion } from 'framer-motion';
 import { masterData } from '../model/masterData';
 import { containerVariants, masterVariants, } from '../../../shared/lib/constants';
@@ -13,7 +12,7 @@ interface IMastersData {
   onScroll?: () => void;
 }
 
-export const Masters = ({ className, refer, onScroll, }: IMastersData) => {
+export const Masters = ({ className, refer }: IMastersData) => {
   return (
     <section
       className={classNames(cls.section, {}, [className ?? ''])}

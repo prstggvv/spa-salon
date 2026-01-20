@@ -13,7 +13,6 @@ interface AboutSpaProps {
 export const AboutSpa = ({
   className,
   refer,
-  onScroll,
 }: AboutSpaProps) => {
   return (
     <section

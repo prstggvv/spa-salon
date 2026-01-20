@@ -43,6 +43,7 @@ export const Reviews = ({
       <div className={classNames(cls.container, {}, [])}>
         <div className={classNames(cls.mainInfo, {}, [])}>
           <Titles
+            isVisible={false}
             uptitle='Отзывы'
             title='Что говорят наши клиенты'
             dark={true}

@@ -1,5 +1,4 @@
 import FirstImage from '../../../shared/assets/images/cards/first.jpeg';
-import SpaHeadImage from '../../../shared/assets/images/cards/spahead.jpg';
 import SecondImage from '../../../shared/assets/images/cards/second.jpeg';
 import ThirdImage from '../../../shared/assets/images/cards/third.jpeg';
 import type { IServiceProps } from '../../../types';
