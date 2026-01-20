@@ -93,9 +93,8 @@ export const Popup = ({
               )}
             </div>
             <Button
-              type='button'
+              href='#'
               children='Купить'
-              onClick={handleCardBuy}
               className={classNames(cls.button, {}, [])}
             />
           </div>
