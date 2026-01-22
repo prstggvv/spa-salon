@@ -13,7 +13,7 @@ _____
 ____
 ## Статус проект
 
-https://prstggvv.github.io/spa-salon
+https://lehalo-spa.ru
 
 ____
 ## Используемые технологии
