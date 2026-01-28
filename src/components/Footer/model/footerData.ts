@@ -16,11 +16,11 @@ interface IFooterLinks {
 export const footerData: IFooterDataProps[] = [
   {
     icon: Phone,
-    heading: '+7 (978) 912-20-57',
+    heading: '+7 (978) 682-82-08',
   },
   {
     icon: Mail,
-    heading: 'rybina_daria035@mail.ru',
+    heading: 'lehalo-spa@mail.ru',
   },
   {
     icon: MapPin,
